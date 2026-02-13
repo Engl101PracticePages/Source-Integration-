@@ -129,10 +129,7 @@
       backdrop-filter: blur(8px);
     }
 
-    h2{
-      margin:0 0 6px;
-      font-size: 18px;
-    }
+    h2{ margin:0 0 6px; font-size:18px; }
     .sub{
       margin:0 0 12px;
       color:var(--muted);
@@ -154,21 +151,25 @@
       display:block;
       margin: 10px 0 6px;
       font-size: 13px;
-      font-weight: 700;
+      font-weight: 800;
       color: var(--muted);
     }
 
+    /* IMPORTANT: better textarea font */
     textarea, input, select{
       width:100%;
       border:1px solid var(--line);
       border-radius: 14px;
       background:#fff;
       color: var(--text);
-      padding: 10px 10px;
-      font-size: 14px;
+      padding: 12px 12px;
+      font-size: 15px;
+      line-height: 1.55;
       outline:none;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     }
-    textarea{min-height:110px; resize:vertical}
+
+    textarea{min-height:130px; resize:vertical}
 
     textarea:focus, input:focus, select:focus, button:focus{
       box-shadow: var(--focus);
@@ -194,7 +195,7 @@
       border:0;
       border-radius: 14px;
       padding: 11px 14px;
-      font-weight: 800;
+      font-weight: 900;
       cursor:pointer;
       color:#fff;
       background: linear-gradient(135deg, var(--blue), var(--mint));
@@ -236,19 +237,15 @@
     .smalldot.warn{background: var(--warn)}
     .smalldot.bad{background: var(--bad)}
 
-    .mono{
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    }
-
     .checklist{
       margin: 10px 0 0;
       padding-left: 18px;
       color: var(--muted);
     }
     .checklist li{margin: 8px 0}
-    .ok{color: var(--good); font-weight: 800}
-    .warn{color: var(--warn); font-weight: 800}
-    .no{color: var(--bad); font-weight: 800}
+    .ok{color: var(--good); font-weight: 900}
+    .warn{color: var(--warn); font-weight: 900}
+    .no{color: var(--bad); font-weight: 900}
 
     .hide{display:none !important}
 
@@ -266,12 +263,24 @@
       padding: 12px;
       color: var(--muted);
       font-size: 14px;
-      line-height: 1.5;
+      line-height: 1.55;
     }
     .minihead{
       font-weight: 900;
       color: var(--text);
       margin-bottom: 6px;
+    }
+
+    /* Bigger text areas where you want to see full paragraphs */
+    .tall{ min-height: 220px; }
+    .taller{ min-height: 300px; }
+    .wcTall{ min-height: 190px; }
+
+    /* Model paragraph: nicer reading font */
+    .reading{
+      font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+      font-size: 16px;
+      line-height: 1.65;
     }
   </style>
 </head>
@@ -281,7 +290,8 @@
     <header>
       <h1>MLA Practice: Quote + Paraphrase + Cite (2 Sources)</h1>
       <p class="lead">
-        You will first walk through an example, then you will write your own paragraph.
+        You will first walk through an <strong>example</strong>, then you will write your <strong>own paragraph</strong>.
+        You only see one page at a time.
       </p>
 
       <div class="pillrow">
@@ -304,8 +314,8 @@
     <section class="card" id="p1">
       <h2>Page 1: What you are doing</h2>
       <p class="sub">
-        You will write one paragraph (8–10 sentences) using information from sources. You will practice:
-        quoting, paraphrasing, and citing.
+        You will write one paragraph (8–10 sentences) using information from sources.
+        You will practice quoting, paraphrasing, and citing.
       </p>
 
       <div class="box">
@@ -368,20 +378,20 @@
       </p>
 
       <label for="modelPara">Model paragraph (example)</label>
-      <textarea id="modelPara" class="mono" readonly>Being an EMT or paramedic means dealing with emergencies and helping people right away. The Bureau of Labor Statistics says EMTs and paramedics “provide emergency medical care” and sometimes also transport patients to medical facilities (Bureau of Labor Statistics). The BLS also explains that the job can be stressful and physically hard, and that workers may have to work nights, weekends, and holidays (Bureau of Labor Statistics). To enter this field, people usually need training after high school, and every state requires EMTs and paramedics to be licensed (Bureau of Labor Statistics). In Washington, the CareerOneStop license page explains that EMTs need the correct state credential and must meet state requirements to earn and keep that credential active (CareerOneStop). Becoming an EMT is not just about wanting to help people; you also need training and the right licensing steps to qualify for the work.</textarea>
+      <textarea id="modelPara" class="reading tall" readonly>Being an EMT or paramedic means dealing with emergencies and helping people right away. The Bureau of Labor Statistics says EMTs and paramedics “provide emergency medical care” and sometimes also transport patients to medical facilities (Bureau of Labor Statistics). The BLS also explains that the job can be stressful and physically hard, and that workers may have to work nights, weekends, and holidays (Bureau of Labor Statistics). To enter this field, people usually need training after high school, and every state requires EMTs and paramedics to be licensed (Bureau of Labor Statistics). In Washington, the CareerOneStop license page explains that EMTs need the correct state credential and must meet state requirements to earn and keep that credential active (CareerOneStop). Together, these sources show that becoming an EMT is not just about wanting to help people; you also need training and the right licensing steps to qualify for the work.</textarea>
 
       <div class="box" style="margin-top:12px;">
         <div class="minihead">Simple MLA in-text citations for these web sources</div>
         Use the organization name in parentheses:
         <ul class="checklist">
-          <li>BLS: <span class="mono">(Bureau of Labor Statistics)</span></li>
-          <li>CareerOneStop: <span class="mono">(CareerOneStop)</span></li>
+          <li>BLS: <span>(Bureau of Labor Statistics)</span></li>
+          <li>CareerOneStop: <span>(CareerOneStop)</span></li>
         </ul>
         Rule: what you put in parentheses should match your Works Cited.
       </div>
 
       <label for="modelWC">Example Works Cited (copyable)</label>
-      <textarea id="modelWC" class="mono" readonly></textarea>
+      <textarea id="modelWC" class="wcTall" readonly></textarea>
 
       <div class="btnrow">
         <button class="ghost" id="backP3">Back</button>
@@ -411,421 +421,4 @@
         <li>
           <strong>Source 1 (BLS)</strong><br />
           <a target="_blank" rel="noopener"
-             href="https://www.bls.gov/ooh/education-training-and-library/postsecondary-teachers.htm">
-            Postsecondary Teachers — Occupational Outlook Handbook
-          </a>
-        </li>
-
-        <li>
-          <strong>Source 2 (CareerOneStop — Certification)</strong><br />
-          <a target="_blank" rel="noopener"
-             href="https://www.careeronestop.org/Toolkit/Training/find-certifications.aspx?keyword=post%20secondary&ajax=0&direct=0&lang=en&certid=13771-A">
-            Certified Postsecondary Instructor (CPI)
-          </a>
-        </li>
-      </ol>
-
-      <div class="btnrow">
-        <button class="ghost" id="backP4">Back</button>
-        <button id="toP5">Next: Collect your quote + paraphrases</button>
-      </div>
-    </section>
-
-    <!-- PAGE 5: Evidence collection -->
-    <section class="card hide" id="p5">
-      <h2>Page 5: Collect your evidence</h2>
-      <p class="sub">
-        Put your information into the boxes. After each quote/paraphrase, add a citation in parentheses.
-      </p>
-
-      <label for="quoteText">1) Direct quote (exact words, include quotation marks)</label>
-      <textarea id="quoteText" placeholder='Paste a quote like: “...”'></textarea>
-
-      <div class="row two">
-        <div>
-          <label for="quoteSource">Quote source</label>
-          <select id="quoteSource">
-            <option value="BLS">Source 1 (BLS)</option>
-            <option value="COS">Source 2 (CareerOneStop CPI)</option>
-          </select>
-        </div>
-        <div>
-          <label for="quoteCite">Citation for the quote (in parentheses)</label>
-          <input id="quoteCite" placeholder="Example: (Bureau of Labor Statistics) OR (CareerOneStop)" />
-        </div>
-      </div>
-
-      <label for="para1">2) Paraphrase #1 (from BLS, your own words)</label>
-      <textarea id="para1" placeholder="Explain one important idea from BLS in your own words."></textarea>
-
-      <label for="para1Cite">Citation for paraphrase #1</label>
-      <input id="para1Cite" placeholder="Example: (Bureau of Labor Statistics)" />
-
-      <label for="para2">3) Paraphrase #2 (from CareerOneStop CPI, your own words)</label>
-      <textarea id="para2" placeholder="Explain one important idea from CareerOneStop CPI in your own words."></textarea>
-
-      <label for="para2Cite">Citation for paraphrase #2</label>
-      <input id="para2Cite" placeholder="Example: (CareerOneStop)" />
-
-      <div class="statusrow">
-        <div class="badge"><span class="smalldot" id="evidenceDot"></span><span id="evidenceStatus">Evidence: not ready yet</span></div>
-      </div>
-
-      <div class="btnrow">
-        <button class="ghost" id="backP5">Back</button>
-        <button id="buildBtn">Build my paragraph</button>
-        <button class="secondary" id="toP6">Next: Final copy + checklist</button>
-      </div>
-
-      <p class="footerhint">
-        Paraphrase tip: do not copy the sentence and swap a few words. Say the idea in a fresh way.
-      </p>
-    </section>
-
-    <!-- PAGE 6: Final copy -->
-    <section class="card hide" id="p6">
-      <h2>Page 6: Final copy box</h2>
-      <p class="sub">
-        Click “Build my paragraph” if you have not yet. Then copy your paragraph and Works Cited.
-      </p>
-
-      <label for="finalPara">Your paragraph (you can edit it)</label>
-      <textarea id="finalPara" class="mono" placeholder="Click “Build my paragraph” to generate."></textarea>
-
-      <div class="statusrow">
-        <div class="badge"><span class="smalldot" id="sentDot"></span><span id="sentStatus">Sentences: 0 (goal 8–10)</span></div>
-        <div class="badge"><span class="smalldot" id="citeDot"></span><span id="citeStatus">Citations: 0/3 minimum</span></div>
-      </div>
-
-      <div class="row two" style="margin-top:12px;">
-        <div>
-          <label for="accessDate">Access date (auto-filled)</label>
-          <input id="accessDate" />
-        </div>
-        <div>
-          <label for="studentName">Your name (optional)</label>
-          <input id="studentName" placeholder="Name" />
-        </div>
-      </div>
-
-      <label for="wcBlock">Works Cited (copy this too)</label>
-      <textarea id="wcBlock" class="mono" placeholder="Click “Build Works Cited”"></textarea>
-
-      <div class="btnrow">
-        <button id="buildWCBtn">Build Works Cited</button>
-        <button class="secondary" id="copyWCBtn">Copy Works Cited</button>
-      </div>
-
-      <label for="finalCopy">FINAL COPY (paragraph + Works Cited together)</label>
-      <textarea id="finalCopy" class="mono" placeholder="Click “Build FINAL copy”"></textarea>
-
-      <div class="btnrow">
-        <button id="buildFinalBtn">Build FINAL copy</button>
-        <button class="secondary" id="copyFinalBtn">Copy FINAL copy</button>
-        <button class="ghost" id="backP6">Back</button>
-      </div>
-
-      <h2 style="margin-top:14px;">Checklist</h2>
-      <ul class="checklist" id="checklist">
-        <li>Has a quote with quotation marks <span id="chkQuote" class="warn">(not checked yet)</span></li>
-        <li>Has 2 paraphrases <span id="chkParas" class="warn">(not checked yet)</span></li>
-        <li>Has 3+ citations <span id="chkCites" class="warn">(not checked yet)</span></li>
-        <li>Has 8–10 sentences <span id="chkSents" class="warn">(not checked yet)</span></li>
-        <li>Has a Works Cited block <span id="chkWC" class="warn">(not checked yet)</span></li>
-      </ul>
-
-      <div class="btnrow">
-        <button class="secondary" id="checkBtn">Check basics</button>
-      </div>
-    </section>
-
-  </div>
-
-  <script>
-    // Safari-safe JS (no lookbehind regex, no optional chaining, no fancy features)
-    function $(id){ return document.getElementById(id); }
-
-    // ---------- Page navigation ----------
-    var pages = [
-      {id:"p1", label:"Page 1 of 6", title:"Start here", pct: 5},
-      {id:"p2", label:"Page 2 of 6", title:"Example sources (EMT)", pct: 20},
-      {id:"p3", label:"Page 3 of 6", title:"Example model paragraph", pct: 35},
-      {id:"p4", label:"Page 4 of 6", title:"Your sources (Professor)", pct: 55},
-      {id:"p5", label:"Page 5 of 6", title:"Collect evidence", pct: 75},
-      {id:"p6", label:"Page 6 of 6", title:"Final copy + checklist", pct: 100}
-    ];
-
-    function showPage(n){
-      for (var i=0; i<pages.length; i++){
-        var el = $(pages[i].id);
-        if (el) el.classList.toggle("hide", i !== n);
-      }
-      $("stepLabel").textContent = pages[n].label;
-      $("stepTitle").textContent = pages[n].title;
-      $("barFill").style.width = pages[n].pct + "%";
-      window.scrollTo({top: 0, behavior: "smooth"});
-    }
-
-    $("toP2").addEventListener("click", function(){ showPage(1); });
-    $("toP3").addEventListener("click", function(){ showPage(2); });
-    $("toP4").addEventListener("click", function(){ showPage(3); });
-    $("toP5").addEventListener("click", function(){ showPage(4); });
-    $("toP6").addEventListener("click", function(){ showPage(5); });
-
-    $("backP2").addEventListener("click", function(){ showPage(0); });
-    $("backP3").addEventListener("click", function(){ showPage(1); });
-    $("backP4").addEventListener("click", function(){ showPage(2); });
-    $("backP5").addEventListener("click", function(){ showPage(3); });
-    $("backP6").addEventListener("click", function(){ showPage(4); });
-
-    // ---------- Helpers ----------
-    function todayUS(){
-      var d = new Date();
-      var months = ["Jan.","Feb.","Mar.","Apr.","May","June","July","Aug.","Sept.","Oct.","Nov.","Dec."];
-      return d.getDate() + " " + months[d.getMonth()] + " " + d.getFullYear();
-    }
-
-    // Safari-safe sentence counter (NO lookbehind)
-    function countSentences(text){
-      var cleaned = (text || "").replace(/\s+/g, " ").trim();
-      if (!cleaned) return 0;
-
-      // Count sentence endings. If none, count as 1 sentence.
-      var matches = cleaned.match(/[.!?]+/g);
-      var count = matches ? matches.length : 0;
-
-      // If text has no punctuation but has words, treat it as 1 sentence.
-      if (count === 0 && cleaned.length > 0) return 1;
-
-      return count;
-    }
-
-    function countCitations(text){
-      var m = (text || "").match(/\([^)]+\)/g);
-      return m ? m.length : 0;
-    }
-
-    function setDot(el, state){
-      el.classList.remove("good","warn","bad");
-      if (state) el.classList.add(state);
-    }
-
-    function updateEvidenceStatus(){
-      var quote = $("quoteText").value.trim();
-      var quoteCite = $("quoteCite").value.trim();
-      var p1 = $("para1").value.trim();
-      var p1Cite = $("para1Cite").value.trim();
-      var p2 = $("para2").value.trim();
-      var p2Cite = $("para2Cite").value.trim();
-
-      var ok = (quote && quoteCite && p1 && p1Cite && p2 && p2Cite);
-
-      $("evidenceStatus").textContent = ok ? "Evidence: ready" : "Evidence: fill in every box";
-      setDot($("evidenceDot"), ok ? "good" : "warn");
-    }
-
-    function updateBadges(){
-      var text = $("finalPara").value;
-      var sentCount = countSentences(text);
-      var citeCount = countCitations(text);
-
-      $("sentStatus").textContent = "Sentences: " + sentCount + " (goal 8–10)";
-      $("citeStatus").textContent = "Citations: " + citeCount + "/3 minimum";
-
-      if (sentCount === 0) setDot($("sentDot"), "warn");
-      else if (sentCount >= 8 && sentCount <= 10) setDot($("sentDot"), "good");
-      else setDot($("sentDot"), "bad");
-
-      if (citeCount === 0) setDot($("citeDot"), "warn");
-      else if (citeCount >= 3) setDot($("citeDot"), "good");
-      else setDot($("citeDot"), "bad");
-    }
-
-    // ---------- Works Cited ----------
-    function buildModelWorksCited(){
-      var access = $("accessDate").value.trim() || todayUS();
-
-      var mwc1 =
-        "Bureau of Labor Statistics. “EMTs and Paramedics.” Occupational Outlook Handbook, U.S. Bureau of Labor Statistics, https://www.bls.gov/ooh/healthcare/emts-and-paramedics.htm. Accessed " + access + ".";
-
-      var mwc2 =
-        "CareerOneStop. “Emergency Medical Technician (WA).” License Finder, CareerOneStop, https://www.careeronestop.org/Toolkit/Training/find-licenses-detail.aspx?keyword=emt&location=WA&lang=en&licenseId=53-L48. Accessed " + access + ".";
-
-      $("modelWC").value = mwc1 + "\n" + mwc2;
-    }
-
-    function buildWorksCitedDefaults(){
-      var access = $("accessDate").value.trim() || todayUS();
-
-      var wc1 =
-        "Bureau of Labor Statistics. “Postsecondary Teachers.” Occupational Outlook Handbook, U.S. Bureau of Labor Statistics, https://www.bls.gov/ooh/education-training-and-library/postsecondary-teachers.htm. Accessed " + access + ".";
-
-      var wc2 =
-        "CareerOneStop. “Certified Postsecondary Instructor (CPI).” Certification Finder, CareerOneStop, https://www.careeronestop.org/Toolkit/Training/find-certifications.aspx?keyword=post%20secondary&ajax=0&direct=0&lang=en&certid=13771-A. Accessed " + access + ".";
-
-      $("wcBlock").value = wc1 + "\n" + wc2;
-    }
-
-    // ---------- Final copy ----------
-    function buildFinalCopy(){
-      var para = ($("finalPara").value || "").trim();
-      var wc = ($("wcBlock").value || "").trim();
-
-      var block = para + "\n\nWorks Cited\n" + wc;
-      $("finalCopy").value = block.trim();
-    }
-
-    // ---------- Build paragraph ----------
-    function buildDraftParagraph(){
-      var quote = $("quoteText").value.trim();
-      var quoteCite = $("quoteCite").value.trim();
-      var p1 = $("para1").value.trim();
-      var p1Cite = $("para1Cite").value.trim();
-      var p2 = $("para2").value.trim();
-      var p2Cite = $("para2Cite").value.trim();
-
-      var s = [];
-      s.push();
-      if (quote){
-        s.push(("One source says, " + quote + " " + quoteCite).trim() + ".");
-      } else {
-        s.push();
-      }
-
-      if (p1){
-        s.push((p1 + " " + p1Cite).trim() + ".");
-      } else {
-        s.push();
-      }
-
-      s.push();
-
-      if (p2){
-        s.push((p2 + " " + p2Cite).trim() + ".");
-      } else {
-        s.push();
-      }
-
-      s.push();
-
-      var draft = s.join(" ")
-        .replace(/\s+\./g, ".")
-        .replace(/\.\./g, ".")
-        .replace(/\s{2,}/g, " ")
-        .trim();
-
-      $("finalPara").value = draft;
-      buildWorksCitedDefaults();
-      updateBadges();
-      buildFinalCopy();
-      showPage(5);
-    }
-
-    $("buildBtn").addEventListener("click", buildDraftParagraph);
-
-    // ---------- Copy (Safari-safe fallback) ----------
-    function copyToClipboard(value){
-      if (navigator.clipboard && navigator.clipboard.writeText){
-        navigator.clipboard.writeText(value).then(function(){
-          alert("Copied!");
-        }).catch(function(){
-          fallbackCopy(value);
-        });
-      } else {
-        fallbackCopy(value);
-      }
-    }
-
-    function fallbackCopy(value){
-      var tmp = document.createElement("textarea");
-      tmp.value = value;
-      document.body.appendChild(tmp);
-      tmp.select();
-      try { document.execCommand("copy"); } catch(e) {}
-      document.body.removeChild(tmp);
-      alert("Copied!");
-    }
-
-    $("copyWCBtn").addEventListener("click", function(){ copyToClipboard($("wcBlock").value); });
-    $("copyFinalBtn").addEventListener("click", function(){ copyToClipboard($("finalCopy").value); });
-
-    $("buildWCBtn").addEventListener("click", function(){
-      buildWorksCitedDefaults();
-      buildFinalCopy();
-      alert("Works Cited built!");
-    });
-
-    $("buildFinalBtn").addEventListener("click", function(){
-      buildFinalCopy();
-      alert("FINAL copy built!");
-    });
-
-    $("finalPara").addEventListener("input", function(){
-      updateBadges();
-      buildFinalCopy();
-    });
-
-    // ---------- Checklist ----------
-    function runChecklist(){
-      var quote = $("quoteText").value.trim();
-      var p1 = $("para1").value.trim();
-      var p2 = $("para2").value.trim();
-      var paraText = $("finalPara").value.trim();
-      var wc = $("wcBlock").value.trim();
-
-      var hasQuoteMarks = (quote.indexOf("“") !== -1) || (quote.indexOf("”") !== -1) || (quote.indexOf("\"") !== -1);
-      var hasQuote = quote.length > 0 && hasQuoteMarks;
-
-      var hasParas = (p1.length > 0 && p2.length > 0);
-
-      var cites = countCitations(paraText);
-      var hasCites = cites >= 3;
-
-      var sentCount = countSentences(paraText);
-      var hasSentRange = sentCount >= 8 && sentCount <= 10;
-
-      var hasWC = wc.length > 0;
-
-      $("chkQuote").textContent = hasQuote ? "(ok)" : "(add quotation marks)";
-      $("chkQuote").className = hasQuote ? "ok" : "no";
-
-      $("chkParas").textContent = hasParas ? "(ok)" : "(need 2 paraphrases)";
-      $("chkParas").className = hasParas ? "ok" : "no";
-
-      $("chkCites").textContent = hasCites ? "(ok)" : "(need 3+; you have " + cites + ")";
-      $("chkCites").className = hasCites ? "ok" : "no";
-
-      $("chkSents").textContent = hasSentRange ? "(ok)" : "(goal 8–10; you have " + sentCount + ")";
-      $("chkSents").className = hasSentRange ? "ok" : "no";
-
-      $("chkWC").textContent = hasWC ? "(ok)" : "(click Build Works Cited)";
-      $("chkWC").className = hasWC ? "ok" : "no";
-
-      updateBadges();
-      buildFinalCopy();
-    }
-
-    $("checkBtn").addEventListener("click", runChecklist);
-
-    // Evidence live status listeners
-    var ids = ["quoteText","quoteCite","para1","para1Cite","para2","para2Cite","quoteSource"];
-    for (var i=0; i<ids.length; i++){
-      (function(id){
-        var el = $(id);
-        if (!el) return;
-        el.addEventListener("input", updateEvidenceStatus);
-        el.addEventListener("change", updateEvidenceStatus);
-      })(ids[i]);
-    }
-
-    // ---------- Init ----------
-    $("accessDate").value = todayUS();
-    buildModelWorksCited();
-    buildWorksCitedDefaults();
-    updateEvidenceStatus();
-    updateBadges();
-    buildFinalCopy();
-    showPage(0);
-  </script>
-</body>
-</html>
+             href="https://www.b
