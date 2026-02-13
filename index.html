@@ -5,12 +5,9 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>MLA Practice (Simple)</title>
   <style>
-    /* ==========================
-       Calm, middle-school-friendly
-       ========================== */
     :root{
-      --bg: #f4f9ff;     /* very soft blue */
-      --bg2:#f6fff8;     /* very soft mint */
+      --bg: #f4f9ff;
+      --bg2:#f6fff8;
       --card:#ffffff;
 
       --text:#1f2a44;
@@ -18,10 +15,10 @@
 
       --line:#dbe7f5;
 
-      --blue:#4f8cff;    /* calm blue */
-      --mint:#46c6a7;    /* calm green */
-      --sun:#ffd36e;     /* soft yellow */
-      --pink:#ff9bb2;    /* soft pink */
+      --blue:#4f8cff;
+      --mint:#46c6a7;
+      --sun:#ffd36e;
+      --pink:#ff9bb2;
 
       --good:#1a9b4a;
       --warn:#c77900;
@@ -91,7 +88,6 @@
     .dot.mint{background:var(--mint)}
     .dot.pink{background:var(--pink)}
 
-    /* Progress */
     .progressbox{
       margin-top: 12px;
       padding: 10px 12px;
@@ -123,7 +119,6 @@
       transition: width .25s ease;
     }
 
-    /* Cards / Steps */
     .card{
       margin-top:14px;
       background: rgba(255,255,255,.85);
@@ -299,22 +294,26 @@
 
       <ol class="sources">
         <li>
-          <strong>Source 1 (website)</strong><br />
+          <strong>Source 1 (BLS)</strong><br />
           <a target="_blank" rel="noopener"
              href="https://www.bls.gov/ooh/education-training-and-library/postsecondary-teachers.htm">
-            BLS: Postsecondary Teachers
+            Postsecondary Teachers — Occupational Outlook Handbook
           </a>
         </li>
+
         <li>
-          <strong>Source 2 (PDF)</strong><br />
-          <a target="_blank" rel="noopener" href="pdfs/jobfinderpostsecond.pdf">
-            Job Finder Posting — Postsecondary (PDF)
+          <strong>Source 2 (CareerOneStop: Certification)</strong><br />
+          <a target="_blank" rel="noopener"
+             href="https://www.careeronestop.org/Toolkit/Training/find-certifications.aspx?certid=13771-A&direct=0&keyword=Mathematical+Science+Teachers%2C+Postsecondary">
+            Certified Postsecondary Instructor® (CPI®)
           </a>
         </li>
+
         <li>
-          <strong>Source 3 (PDF)</strong><br />
-          <a target="_blank" rel="noopener" href="pdfs/jobfinderfirstresponder.pdf">
-            Job Finder Posting — First Responder (PDF)
+          <strong>Source 3 (CareerOneStop: Job Finder)</strong><br />
+          <a target="_blank" rel="noopener"
+             href="https://www.careeronestop.org/Toolkit/Jobs/find-jobs-details.aspx?detailpage=true&fc=0&jvid=b07d0cedfdb04e8183fbb27319d086868003&keyword=General%2BInternal%2BMedicine%2BPhysicians&lang=en&location=Washington&radius=25">
+            Washington State University — Pullman-area posting (Job Finder)
           </a>
         </li>
       </ol>
@@ -341,14 +340,14 @@
       <div class="row two">
         <div>
           <label for="quoteCite">Citation for the quote</label>
-          <input id="quoteCite" placeholder='Example: (Bureau of Labor Statistics) OR (“BLS: Postsecondary Teachers”)' />
+          <input id="quoteCite" placeholder='Example: (Bureau of Labor Statistics) OR (“Postsecondary Teachers”)' />
         </div>
         <div>
           <label for="quoteSource">Where is your quote from?</label>
           <select id="quoteSource">
-            <option value="BLS">Source 1 (BLS website)</option>
-            <option value="PDF-POSTSECOND">Source 2 (Postsecondary PDF)</option>
-            <option value="PDF-FIRSTRESP">Source 3 (First Responder PDF)</option>
+            <option value="BLS">Source 1 (BLS)</option>
+            <option value="COS-CPI">Source 2 (CareerOneStop CPI)</option>
+            <option value="COS-JOB">Source 3 (CareerOneStop Job Finder)</option>
           </select>
         </div>
       </div>
@@ -357,13 +356,13 @@
       <textarea id="para1" placeholder="Write what you learned in your own words."></textarea>
 
       <label for="para1Cite">Citation for paraphrase #1</label>
-      <input id="para1Cite" placeholder='Example: (Bureau of Labor Statistics) OR (“Job Finder Posting — Postsecondary”)' />
+      <input id="para1Cite" placeholder='Example: (Bureau of Labor Statistics) OR (CareerOneStop) OR (“Certified Postsecondary Instructor® (CPI®)”)' />
 
       <label for="para2">3) Paraphrase #2 (different source)</label>
       <textarea id="para2" placeholder="Write what you learned from a different source."></textarea>
 
       <label for="para2Cite">Citation for paraphrase #2</label>
-      <input id="para2Cite" placeholder='Example: (“Job Finder Posting — First Responder”) OR (Bureau of Labor Statistics)' />
+      <input id="para2Cite" placeholder='Example: (CareerOneStop) OR (Washington State University) OR (“Postsecondary Teachers”)' />
 
       <div class="statusrow">
         <div class="badge"><span class="smalldot" id="evidenceDot"></span><span id="evidenceStatus">Evidence: not ready yet</span></div>
@@ -428,10 +427,6 @@
         <li>Has 8–10 sentences <span id="chkSents" class="warn">(not checked yet)</span></li>
         <li>Has a Works Cited block <span id="chkWC" class="warn">(not checked yet)</span></li>
       </ul>
-
-      <p class="footerhint">
-        Teacher tip: students can revise the paragraph, but keep citations in place.
-      </p>
     </section>
   </div>
 
@@ -535,8 +530,6 @@
       const p2Cite = $("para2Cite").value.trim();
 
       const s = [];
-
-      // Simple 8–10 sentence structure
       s.push("These sources explain what jobs are like and what employers want.");
       if (quote) s.push(`One source says, ${quote} ${quoteCite ? quoteCite : ""}`.trim().replace(/\s+\./g,".") + ".");
       if (p1) s.push(`${p1} ${p1Cite ? p1Cite : ""}`.trim().replace(/\s+\./g,".") + ".");
@@ -546,7 +539,6 @@
       s.push("Job postings also show what skills employers are asking for right now.");
       s.push("Overall, the sources suggest that being ready for a job means meeting real expectations, not just interest.");
 
-      // Clean up double punctuation
       const draft = s.join(" ")
         .replace(/\s+\./g, ".")
         .replace(/\.\./g, ".")
@@ -556,12 +548,10 @@
       $("finalPara").value = draft;
       updateBadges();
       buildWorksCitedDefaults();
-      buildWorksCitedBlock();
     }
 
     $("buildBtn").addEventListener("click", () => {
       buildDraftParagraph();
-      // Jump them to Step 3 automatically after building (less confusing)
       showStep(2);
     });
 
@@ -586,27 +576,19 @@
     function buildWorksCitedDefaults(){
       const access = $("accessDate").value.trim() || todayUS();
 
-      // You can edit titles if you want them to match your PDF headings
       const wc1 =
         `Bureau of Labor Statistics. “Postsecondary Teachers.” Occupational Outlook Handbook, U.S. Bureau of Labor Statistics, https://www.bls.gov/ooh/education-training-and-library/postsecondary-teachers.htm. Accessed ${access}.`;
 
       const wc2 =
-        `“Job Finder Posting — Postsecondary.” PDF file, pdfs/jobfinderpostsecond.pdf. Accessed ${access}.`;
+        `CareerOneStop. “Certified Postsecondary Instructor® (CPI®).” Certification Finder, CareerOneStop, https://www.careeronestop.org/Toolkit/Training/find-certifications.aspx?certid=13771-A&direct=0&keyword=Mathematical+Science+Teachers%2C+Postsecondary. Accessed ${access}.`;
 
       const wc3 =
-        `“Job Finder Posting — First Responder.” PDF file, pdfs/jobfinderfirstresponder.pdf. Accessed ${access}.`;
+        `CareerOneStop. “Internal Medicine Residency Program Core Faculty.” Job Finder, CareerOneStop, https://www.careeronestop.org/Toolkit/Jobs/find-jobs-details.aspx?detailpage=true&fc=0&jvid=b07d0cedfdb04e8183fbb27319d086868003&keyword=General%2BInternal%2BMedicine%2BPhysicians&lang=en&location=Washington&radius=25. Accessed ${access}.`;
 
-      // We only show the final block in this simplified version
       $("wcBlock").value = [wc1, wc2, wc3].join("\n");
     }
 
-    function buildWorksCitedBlock(){
-      // In this version, wcBlock already holds the final block.
-      // (This function exists just to keep the same “button” logic.)
-      buildWorksCitedDefaults();
-    }
-
-    $("buildWCBtn").addEventListener("click", buildWorksCitedBlock);
+    $("buildWCBtn").addEventListener("click", buildWorksCitedDefaults);
 
     // ---------- Checklist ----------
     function runChecklist(){
