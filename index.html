@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>MLA Practice (Simple)</title>
+  <title>MLA Practice: Source Integration (2 Sources)</title>
   <style>
     :root{
       --bg: #f4f9ff;
@@ -258,15 +258,32 @@
       font-size: 12px;
       line-height:1.5;
     }
+
+    .box{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.9);
+      border-radius: 14px;
+      padding: 12px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .minihead{
+      font-weight: 900;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
   </style>
 </head>
 
 <body>
   <div class="wrap">
     <header>
-      <h1>MLA Practice: Quote + Paraphrase + Cite</h1>
+      <h1>MLA Practice: Quote + Paraphrase + Cite (2 Sources)</h1>
       <p class="lead">
-        We’ll do this in <strong>3 small steps</strong>. You only see one step at a time.
+        You will first walk through an <strong>example</strong>, then you will write your <strong>own paragraph</strong>.
+        You only see one page at a time.
       </p>
 
       <div class="pillrow">
@@ -278,365 +295,15 @@
 
       <div class="progressbox">
         <div class="progresstop">
-          <span id="stepLabel">Step 1 of 3</span>
-          <span id="stepTitle">Open your sources</span>
+          <span id="stepLabel">Page 1 of 6</span>
+          <span id="stepTitle">Start here</span>
         </div>
         <div class="bar"><div id="barFill"></div></div>
       </div>
     </header>
 
-    <!-- STEP 1 -->
-    <section class="card" id="step1">
-      <h2>Step 1: Open your sources</h2>
+    <!-- PAGE 1 -->
+    <section class="card" id="p1">
+      <h2>Page 1: What you are doing</h2>
       <p class="sub">
-        Click each link. Skim. Find information you can use.
-      </p>
-
-      <ol class="sources">
-        <li>
-          <strong>Source 1 (BLS)</strong><br />
-          <a target="_blank" rel="noopener"
-             href="https://www.bls.gov/ooh/education-training-and-library/postsecondary-teachers.htm">
-            Postsecondary Teachers — Occupational Outlook Handbook
-          </a>
-        </li>
-
-        <li>
-          <strong>Source 2 (CareerOneStop: Certification)</strong><br />
-          <a target="_blank" rel="noopener"
-             href="https://www.careeronestop.org/Toolkit/Training/find-certifications.aspx?certid=13771-A&direct=0&keyword=Mathematical+Science+Teachers%2C+Postsecondary">
-            Certified Postsecondary Instructor® (CPI®)
-          </a>
-        </li>
-
-        <li>
-          <strong>Source 3 (CareerOneStop: Job Finder)</strong><br />
-          <a target="_blank" rel="noopener"
-             href="https://www.careeronestop.org/Toolkit/Jobs/find-jobs-details.aspx?detailpage=true&fc=0&jvid=b07d0cedfdb04e8183fbb27319d086868003&keyword=General%2BInternal%2BMedicine%2BPhysicians&lang=en&location=Washington&radius=25">
-            Washington State University — Pullman-area posting (Job Finder)
-          </a>
-        </li>
-      </ol>
-
-      <p class="footerhint">
-        <strong>Rule:</strong> If you learned it from a source, you must cite it (even if you paraphrase).
-      </p>
-
-      <div class="btnrow">
-        <button id="toStep2">Next: Write your quote + paraphrases</button>
-      </div>
-    </section>
-
-    <!-- STEP 2 -->
-    <section class="card hide" id="step2">
-      <h2>Step 2: Write your evidence</h2>
-      <p class="sub">
-        Keep it simple. After each one, add a citation in parentheses.
-      </p>
-
-      <label for="quoteText">1) Copy one direct quote (exact words)</label>
-      <textarea id="quoteText" placeholder='Paste a quote with quotation marks like: “...”'></textarea>
-
-      <div class="row two">
-        <div>
-          <label for="quoteCite">Citation for the quote</label>
-          <input id="quoteCite" placeholder='Example: (Bureau of Labor Statistics) OR (“Postsecondary Teachers”)' />
-        </div>
-        <div>
-          <label for="quoteSource">Where is your quote from?</label>
-          <select id="quoteSource">
-            <option value="BLS">Source 1 (BLS)</option>
-            <option value="COS-CPI">Source 2 (CareerOneStop CPI)</option>
-            <option value="COS-JOB">Source 3 (CareerOneStop Job Finder)</option>
-          </select>
-        </div>
-      </div>
-
-      <label for="para1">2) Paraphrase #1 (your own words)</label>
-      <textarea id="para1" placeholder="Write what you learned in your own words."></textarea>
-
-      <label for="para1Cite">Citation for paraphrase #1</label>
-      <input id="para1Cite" placeholder='Example: (Bureau of Labor Statistics) OR (CareerOneStop) OR (“Certified Postsecondary Instructor® (CPI®)”)' />
-
-      <label for="para2">3) Paraphrase #2 (different source)</label>
-      <textarea id="para2" placeholder="Write what you learned from a different source."></textarea>
-
-      <label for="para2Cite">Citation for paraphrase #2</label>
-      <input id="para2Cite" placeholder='Example: (CareerOneStop) OR (Washington State University) OR (“Postsecondary Teachers”)' />
-
-      <div class="statusrow">
-        <div class="badge"><span class="smalldot" id="evidenceDot"></span><span id="evidenceStatus">Evidence: not ready yet</span></div>
-      </div>
-
-      <div class="btnrow">
-        <button class="ghost" id="back1">Back</button>
-        <button id="buildBtn">Build my paragraph</button>
-        <button class="secondary" id="toStep3">Next: See your paragraph + Works Cited</button>
-      </div>
-
-      <p class="footerhint">
-        Paraphrase tip: don’t just swap a few words. Say the idea in a fresh way.
-      </p>
-    </section>
-
-    <!-- STEP 3 -->
-    <section class="card hide" id="step3">
-      <h2>Step 3: Copy your paragraph + Works Cited</h2>
-      <p class="sub">
-        Click “Build” if you haven’t yet. Then copy your paragraph and Works Cited.
-      </p>
-
-      <label for="finalPara">Your paragraph (revise if you want)</label>
-      <textarea id="finalPara" class="mono" placeholder="Click “Build my paragraph” to generate."></textarea>
-
-      <div class="statusrow">
-        <div class="badge"><span class="smalldot" id="sentDot"></span><span id="sentStatus">Sentences: 0 (goal 8–10)</span></div>
-        <div class="badge"><span class="smalldot" id="citeDot"></span><span id="citeStatus">Citations: 0/3 minimum</span></div>
-      </div>
-
-      <div class="btnrow">
-        <button id="copyParaBtn">Copy paragraph</button>
-        <button class="secondary" id="checkBtn">Check basics</button>
-      </div>
-
-      <div class="row two" style="margin-top:12px;">
-        <div>
-          <label for="accessDate">Access date (auto-filled)</label>
-          <input id="accessDate" />
-        </div>
-        <div>
-          <label for="studentName">Your name (optional)</label>
-          <input id="studentName" placeholder="Name" />
-        </div>
-      </div>
-
-      <label for="wcBlock">Works Cited (copy this too)</label>
-      <textarea id="wcBlock" class="mono" placeholder="Click “Build Works Cited”"></textarea>
-
-      <div class="btnrow">
-        <button id="buildWCBtn">Build Works Cited</button>
-        <button class="secondary" id="copyWCBtn">Copy Works Cited</button>
-        <button class="ghost" id="back2">Back</button>
-      </div>
-
-      <h2 style="margin-top:14px;">Checklist</h2>
-      <ul class="checklist" id="checklist">
-        <li>Has a quote with quotation marks <span id="chkQuote" class="warn">(not checked yet)</span></li>
-        <li>Has 2 paraphrases <span id="chkParas" class="warn">(not checked yet)</span></li>
-        <li>Has 3+ citations <span id="chkCites" class="warn">(not checked yet)</span></li>
-        <li>Has 8–10 sentences <span id="chkSents" class="warn">(not checked yet)</span></li>
-        <li>Has a Works Cited block <span id="chkWC" class="warn">(not checked yet)</span></li>
-      </ul>
-    </section>
-  </div>
-
-  <script>
-    const $ = (id) => document.getElementById(id);
-
-    // ---------- Step navigation ----------
-    const steps = [
-      {id:"step1", label:"Step 1 of 3", title:"Open your sources", pct: 5},
-      {id:"step2", label:"Step 2 of 3", title:"Write your evidence", pct: 50},
-      {id:"step3", label:"Step 3 of 3", title:"Copy + submit", pct: 100},
-    ];
-
-    function showStep(n){
-      steps.forEach((s, i) => {
-        $(s.id).classList.toggle("hide", i !== n);
-      });
-      $("stepLabel").textContent = steps[n].label;
-      $("stepTitle").textContent = steps[n].title;
-      $("barFill").style.width = steps[n].pct + "%";
-      window.scrollTo({top: 0, behavior: "smooth"});
-    }
-
-    $("toStep2").addEventListener("click", () => showStep(1));
-    $("toStep3").addEventListener("click", () => showStep(2));
-    $("back1").addEventListener("click", () => showStep(0));
-    $("back2").addEventListener("click", () => showStep(1));
-
-    // ---------- Helpers ----------
-    function todayUS(){
-      const d = new Date();
-      const months = ["Jan.","Feb.","Mar.","Apr.","May","June","July","Aug.","Sept.","Oct.","Nov.","Dec."];
-      return `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
-    }
-
-    function countSentences(text){
-      const cleaned = (text || "").trim();
-      if (!cleaned) return 0;
-      const parts = cleaned
-        .replace(/\s+/g, " ")
-        .split(/(?<=[.!?])\s+/)
-        .map(s => s.trim())
-        .filter(Boolean);
-      return parts.length;
-    }
-
-    function countCitations(text){
-      const matches = (text || "").match(/\([^)]+\)/g);
-      return matches ? matches.length : 0;
-    }
-
-    function setDot(el, state){
-      el.classList.remove("good","warn","bad");
-      if (state) el.classList.add(state);
-    }
-
-    function updateEvidenceStatus(){
-      const quote = $("quoteText").value.trim();
-      const quoteCite = $("quoteCite").value.trim();
-      const p1 = $("para1").value.trim();
-      const p1Cite = $("para1Cite").value.trim();
-      const p2 = $("para2").value.trim();
-      const p2Cite = $("para2Cite").value.trim();
-
-      const ok = (quote && quoteCite && p1 && p1Cite && p2 && p2Cite);
-
-      $("evidenceStatus").textContent = ok ? "Evidence: ready ✅" : "Evidence: fill in all boxes";
-      setDot($("evidenceDot"), ok ? "good" : "warn");
-    }
-
-    ["quoteText","quoteCite","para1","para1Cite","para2","para2Cite"].forEach(id=>{
-      $(id).addEventListener("input", updateEvidenceStatus);
-    });
-
-    function updateBadges(){
-      const text = $("finalPara").value;
-      const sentCount = countSentences(text);
-      const citeCount = countCitations(text);
-
-      $("sentStatus").textContent = `Sentences: ${sentCount} (goal 8–10)`;
-      $("citeStatus").textContent = `Citations: ${citeCount}/3 minimum`;
-
-      if (sentCount === 0) setDot($("sentDot"), "warn");
-      else if (sentCount >= 8 && sentCount <= 10) setDot($("sentDot"), "good");
-      else setDot($("sentDot"), "bad");
-
-      if (citeCount === 0) setDot($("citeDot"), "warn");
-      else if (citeCount >= 3) setDot($("citeDot"), "good");
-      else setDot($("citeDot"), "bad");
-    }
-
-    // ---------- Build paragraph ----------
-    function buildDraftParagraph(){
-      const quote = $("quoteText").value.trim();
-      const quoteCite = $("quoteCite").value.trim();
-
-      const p1 = $("para1").value.trim();
-      const p1Cite = $("para1Cite").value.trim();
-
-      const p2 = $("para2").value.trim();
-      const p2Cite = $("para2Cite").value.trim();
-
-      const s = [];
-      s.push("These sources explain what jobs are like and what employers want.");
-      if (quote) s.push(`One source says, ${quote} ${quoteCite ? quoteCite : ""}`.trim().replace(/\s+\./g,".") + ".");
-      if (p1) s.push(`${p1} ${p1Cite ? p1Cite : ""}`.trim().replace(/\s+\./g,".") + ".");
-      s.push("This matters because it shows what the job expects from a person.");
-      if (p2) s.push(`${p2} ${p2Cite ? p2Cite : ""}`.trim().replace(/\s+\./g,".") + ".");
-      s.push("Across the sources, having the right training or credentials can be important.");
-      s.push("Job postings also show what skills employers are asking for right now.");
-      s.push("Overall, the sources suggest that being ready for a job means meeting real expectations, not just interest.");
-
-      const draft = s.join(" ")
-        .replace(/\s+\./g, ".")
-        .replace(/\.\./g, ".")
-        .replace(/\s{2,}/g, " ")
-        .trim();
-
-      $("finalPara").value = draft;
-      updateBadges();
-      buildWorksCitedDefaults();
-    }
-
-    $("buildBtn").addEventListener("click", () => {
-      buildDraftParagraph();
-      showStep(2);
-    });
-
-    // ---------- Copy ----------
-    function copyToClipboard(value){
-      navigator.clipboard.writeText(value).then(() => {
-        alert("Copied!");
-      }).catch(() => {
-        const tmp = document.createElement("textarea");
-        tmp.value = value;
-        document.body.appendChild(tmp);
-        tmp.select();
-        document.execCommand("copy");
-        document.body.removeChild(tmp);
-        alert("Copied!");
-      });
-    }
-    $("copyParaBtn").addEventListener("click", () => copyToClipboard($("finalPara").value));
-    $("copyWCBtn").addEventListener("click", () => copyToClipboard($("wcBlock").value));
-
-    // ---------- Works Cited ----------
-    function buildWorksCitedDefaults(){
-      const access = $("accessDate").value.trim() || todayUS();
-
-      const wc1 =
-        `Bureau of Labor Statistics. “Postsecondary Teachers.” Occupational Outlook Handbook, U.S. Bureau of Labor Statistics, https://www.bls.gov/ooh/education-training-and-library/postsecondary-teachers.htm. Accessed ${access}.`;
-
-      const wc2 =
-        `CareerOneStop. “Certified Postsecondary Instructor® (CPI®).” Certification Finder, CareerOneStop, https://www.careeronestop.org/Toolkit/Training/find-certifications.aspx?certid=13771-A&direct=0&keyword=Mathematical+Science+Teachers%2C+Postsecondary. Accessed ${access}.`;
-
-      const wc3 =
-        `CareerOneStop. “Internal Medicine Residency Program Core Faculty.” Job Finder, CareerOneStop, https://www.careeronestop.org/Toolkit/Jobs/find-jobs-details.aspx?detailpage=true&fc=0&jvid=b07d0cedfdb04e8183fbb27319d086868003&keyword=General%2BInternal%2BMedicine%2BPhysicians&lang=en&location=Washington&radius=25. Accessed ${access}.`;
-
-      $("wcBlock").value = [wc1, wc2, wc3].join("\n");
-    }
-
-    $("buildWCBtn").addEventListener("click", buildWorksCitedDefaults);
-
-    // ---------- Checklist ----------
-    function runChecklist(){
-      const quote = $("quoteText").value.trim();
-      const p1 = $("para1").value.trim();
-      const p2 = $("para2").value.trim();
-      const paraText = $("finalPara").value.trim();
-      const wc = $("wcBlock").value.trim();
-
-      const hasQuoteMarks = quote.includes("“") || quote.includes("”") || quote.includes("\"");
-      const hasQuote = quote.length > 0 && hasQuoteMarks;
-
-      const hasParas = (p1.length > 0 && p2.length > 0);
-
-      const cites = countCitations(paraText);
-      const hasCites = cites >= 3;
-
-      const sentCount = countSentences(paraText);
-      const hasSentRange = sentCount >= 8 && sentCount <= 10;
-
-      const hasWC = wc.length > 0;
-
-      $("chkQuote").textContent = hasQuote ? "(ok)" : "(add quote marks)";
-      $("chkQuote").className = hasQuote ? "ok" : "no";
-
-      $("chkParas").textContent = hasParas ? "(ok)" : "(need 2 paraphrases)";
-      $("chkParas").className = hasParas ? "ok" : "no";
-
-      $("chkCites").textContent = hasCites ? "(ok)" : `(need 3+; you have ${cites})`;
-      $("chkCites").className = hasCites ? "ok" : "no";
-
-      $("chkSents").textContent = hasSentRange ? "(ok)" : `(goal 8–10; you have ${sentCount})`;
-      $("chkSents").className = hasSentRange ? "ok" : "no";
-
-      $("chkWC").textContent = hasWC ? "(ok)" : "(click Build Works Cited)";
-      $("chkWC").className = hasWC ? "ok" : "no";
-
-      updateBadges();
-    }
-
-    $("checkBtn").addEventListener("click", runChecklist);
-    $("finalPara").addEventListener("input", updateBadges);
-
-    // ---------- Init ----------
-    $("accessDate").value = todayUS();
-    buildWorksCitedDefaults();
-    updateEvidenceStatus();
-    showStep(0);
-  </script>
-</body>
-</html>
+        You will write one paragraph (8–10 sentences) using informati
