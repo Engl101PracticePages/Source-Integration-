@@ -685,30 +685,28 @@
       var p2Cite = $("para2Cite").value.trim();
 
       var s = [];
-      s.push("These sources explain what postsecondary teachers do and what people may need to qualify for this work.");
+      s.push();
       if (quote){
         s.push(("One source says, " + quote + " " + quoteCite).trim() + ".");
       } else {
-        s.push("One source includes a direct quote that explains an important part of the job.");
+        s.push();
       }
 
       if (p1){
         s.push((p1 + " " + p1Cite).trim() + ".");
       } else {
-        s.push("The BLS source explains job duties and working conditions for postsecondary teachers (Bureau of Labor Statistics).");
+        s.push();
       }
 
-      s.push("This helps because it shows what the day-to-day work can look like.");
+      s.push();
 
       if (p2){
         s.push((p2 + " " + p2Cite).trim() + ".");
       } else {
-        s.push("The certification source explains what a certification like CPI is and what it may involve (CareerOneStop).");
+        s.push();
       }
 
-      s.push("Certification information matters because it shows what training or proof of skill someone may need.");
-      s.push("Overall, the sources suggest that being ready for this career means understanding the work and meeting real requirements.");
-      s.push("When you combine evidence from multiple sources, your paragraph sounds more credible and more specific.");
+      s.push();
 
       var draft = s.join(" ")
         .replace(/\s+\./g, ".")
