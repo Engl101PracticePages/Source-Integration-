@@ -309,6 +309,14 @@
         reviewParagraph();
         var br = String.fromCharCode(10); var finalText = "Source Integration Practice" + br + br;
         finalText += "Career: " + value("career").trim() + br + br;
+        finalText += "Sources" + br;
+        finalText += "BLS URL: " + value("blsUrl").trim() + br;
+        finalText += "CareerOneStop URL: " + value("cosUrl").trim() + br + br;
+        finalText += "Evidence Collected" + br;
+        finalText += "Exact quote: " + value("quoteEvidence").trim() + br + br;
+        finalText += "BLS fact to paraphrase: " + value("blsFact").trim() + br + br;
+        finalText += "CareerOneStop fact to paraphrase: " + value("cosFact").trim() + br + br;
+        finalText += "Paragraph" + br;
         finalText += value("paragraph").trim();
         setValue("finalOutput", finalText); var print = byId("printContent"); if(print){ print.textContent = finalText; } save();
       }
