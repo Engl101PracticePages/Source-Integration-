@@ -23,85 +23,712 @@
       --shadowsoft:0 10px 24px rgba(53,36,63,.08);
       --focus:0 0 0 4px rgba(183,95,58,.24);
     }
+
     *{box-sizing:border-box;}
-    body{margin:0; font-family:Arial, Helvetica, sans-serif; font-size:18px; line-height:1.6; color:var(--ink); background:radial-gradient(850px 520px at 8% 0%, rgba(216,173,83,.22), transparent 60%), radial-gradient(760px 520px at 95% 4%, rgba(139,155,120,.22), transparent 60%), linear-gradient(180deg, var(--paper), var(--paper2));}
-    a{color:var(--claydark); text-decoration-thickness:2px; text-underline-offset:3px;}
+
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      font-size:18px;
+      line-height:1.6;
+      color:var(--ink);
+      background:
+        radial-gradient(850px 520px at 8% 0%, rgba(216,173,83,.22), transparent 60%),
+        radial-gradient(760px 520px at 95% 4%, rgba(139,155,120,.22), transparent 60%),
+        linear-gradient(180deg, var(--paper), var(--paper2));
+    }
+
+    a{
+      color:var(--claydark);
+      text-decoration-thickness:2px;
+      text-underline-offset:3px;
+    }
+
     a:hover{color:var(--plum);}
     button,input,textarea{font:inherit;}
-    .skip-link{position:absolute; left:-999px; top:12px; background:var(--plum); color:white; padding:10px 14px; border-radius:999px; z-index:20;}
+
+    .skip-link{
+      position:absolute;
+      left:-999px;
+      top:12px;
+      background:var(--plum);
+      color:white;
+      padding:10px 14px;
+      border-radius:999px;
+      z-index:20;
+    }
+
     .skip-link:focus{left:12px;}
-    .shell{max-width:1080px; margin:0 auto; padding:26px 18px 70px;}
-    .hero{position:relative; overflow:hidden; border:1px solid var(--line); border-radius:34px; background:linear-gradient(135deg, rgba(255,250,241,.96), rgba(247,240,229,.90)); box-shadow:var(--shadow); padding:34px; margin-bottom:18px;}
-    .hero:after{content:""; position:absolute; right:-70px; bottom:-100px; width:290px; height:290px; border-radius:999px; background:rgba(53,36,63,.08);}
-    .hero-grid{position:relative; z-index:1; display:grid; grid-template-columns:1.35fr .75fr; gap:28px; align-items:end;}
-    .kicker{margin:0 0 12px; color:var(--claydark); text-transform:uppercase; letter-spacing:.12em; font-size:.78rem; font-weight:800;}
-    h1,h2,h3{font-family:Georgia, "Times New Roman", serif; line-height:1.08; letter-spacing:-.025em; margin:0;}
-    h1{font-size:clamp(2.45rem, 6vw, 5rem); max-width:780px;}
-    h2{font-size:clamp(1.8rem, 3.5vw, 3rem); margin-bottom:12px;}
-    h3{font-size:1.35rem; margin-bottom:8px;}
-    .lead{margin:18px 0 0; color:var(--muted); max-width:720px; font-size:1.08rem;}
-    .hero-panel{background:var(--plum); color:#fff7eb; border-radius:26px; padding:22px; box-shadow:var(--shadowsoft);}
-    .hero-panel p{margin:8px 0 0; color:rgba(255,247,235,.84); font-size:.96rem;}
-    .mini-list{list-style:none; margin:16px 0 0; padding:0; display:grid; gap:9px;}
-    .mini-list li{border-top:1px solid rgba(255,255,255,.16); padding-top:9px; color:rgba(255,247,235,.92); font-size:.96rem;}
-    .tool-bar{position:sticky; top:0; z-index:10; margin:0 0 22px; border:1px solid var(--line); border-radius:999px; background:rgba(255,250,241,.92); backdrop-filter:blur(12px); box-shadow:var(--shadowsoft); display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:12px; padding:10px 12px 10px 18px;}
-    .step-pills{display:flex; gap:8px; flex-wrap:wrap; align-items:center;}
-    .step-tab{border:1px solid rgba(53,36,63,.13); background:rgba(255,255,255,.54); color:var(--muted); border-radius:999px; padding:8px 12px; font-weight:800; font-size:.88rem; box-shadow:none;}
-    .step-tab:hover{background:rgba(183,95,58,.10); color:var(--claydark);}
-    .step-tab.active{background:var(--plum); color:#fff8ed; border-color:var(--plum);}
-    .save-note{font-size:.9rem; color:var(--muted);}
-    .page-grid{display:grid; gap:24px;}
+
+    .shell{
+      max-width:1080px;
+      margin:0 auto;
+      padding:26px 18px 70px;
+    }
+
+    .hero{
+      position:relative;
+      overflow:hidden;
+      border:1px solid var(--line);
+      border-radius:34px;
+      background:linear-gradient(135deg, rgba(255,250,241,.96), rgba(247,240,229,.90));
+      box-shadow:var(--shadow);
+      padding:34px;
+      margin-bottom:18px;
+    }
+
+    .hero:after{
+      content:"";
+      position:absolute;
+      right:-70px;
+      bottom:-100px;
+      width:290px;
+      height:290px;
+      border-radius:999px;
+      background:rgba(53,36,63,.08);
+    }
+
+    .hero-grid{
+      position:relative;
+      z-index:1;
+      display:grid;
+      grid-template-columns:1.35fr .75fr;
+      gap:28px;
+      align-items:end;
+    }
+
+    .kicker{
+      margin:0 0 12px;
+      color:var(--claydark);
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-size:.78rem;
+      font-weight:800;
+    }
+
+    h1,h2,h3{
+      font-family:Georgia, "Times New Roman", serif;
+      line-height:1.08;
+      letter-spacing:-.025em;
+      margin:0;
+    }
+
+    h1{
+      font-size:clamp(2.45rem, 6vw, 5rem);
+      max-width:780px;
+    }
+
+    h2{
+      font-size:clamp(1.8rem, 3.5vw, 3rem);
+      margin-bottom:12px;
+    }
+
+    h3{
+      font-size:1.35rem;
+      margin-bottom:8px;
+    }
+
+    .lead{
+      margin:18px 0 0;
+      color:var(--muted);
+      max-width:720px;
+      font-size:1.08rem;
+    }
+
+    .hero-panel{
+      background:var(--plum);
+      color:#fff7eb;
+      border-radius:26px;
+      padding:22px;
+      box-shadow:var(--shadowsoft);
+    }
+
+    .hero-panel p{
+      margin:8px 0 0;
+      color:rgba(255,247,235,.84);
+      font-size:.96rem;
+    }
+
+    .mini-list{
+      list-style:none;
+      margin:16px 0 0;
+      padding:0;
+      display:grid;
+      gap:9px;
+    }
+
+    .mini-list li{
+      border-top:1px solid rgba(255,255,255,.16);
+      padding-top:9px;
+      color:rgba(255,247,235,.92);
+      font-size:.96rem;
+    }
+
+    .tool-bar{
+      position:sticky;
+      top:0;
+      z-index:10;
+      margin:0 0 22px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:rgba(255,250,241,.92);
+      backdrop-filter:blur(12px);
+      box-shadow:var(--shadowsoft);
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      padding:10px 12px 10px 18px;
+    }
+
+    .step-pills{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    .step-tab{
+      border:1px solid rgba(53,36,63,.13);
+      background:rgba(255,255,255,.54);
+      color:var(--muted);
+      border-radius:999px;
+      padding:8px 12px;
+      font-weight:800;
+      font-size:.88rem;
+      box-shadow:none;
+    }
+
+    .step-tab:hover{
+      background:rgba(183,95,58,.10);
+      color:var(--claydark);
+    }
+
+    .step-tab.active{
+      background:var(--plum);
+      color:#fff8ed;
+      border-color:var(--plum);
+    }
+
+    .save-note{
+      font-size:.9rem;
+      color:var(--muted);
+    }
+
+    .page-grid{
+      display:grid;
+      gap:24px;
+    }
+
     .page-screen{display:none;}
     .page-screen.active{display:block;}
-    .card{background:rgba(255,250,241,.86); border:1px solid var(--line); border-radius:28px; box-shadow:var(--shadowsoft); padding:28px;}
-    .sub{margin:0 0 18px; color:var(--muted); max-width:820px;}
-    .source-row{display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin:16px 0 18px; padding:12px 14px; border:1px solid rgba(183,95,58,.22); border-radius:18px; background:rgba(255,255,255,.50);}
-    .source-row strong{font-size:.92rem; margin-right:2px;}
-    .source-row a{display:inline-flex; align-items:center; text-decoration:none; color:var(--claydark); border:1px solid rgba(183,95,58,.28); background:rgba(255,250,241,.86); border-radius:999px; padding:6px 10px; font-size:.88rem; font-weight:800;}
-    .callout{border-left:5px solid var(--clay); background:rgba(183,95,58,.08); border-radius:18px; padding:16px 18px; margin:18px 0;}
-    .callout p{margin:0; color:var(--muted);}
-    .model-box{background:#fffdf8; border:1px solid var(--line); border-radius:24px; padding:24px; font-family:Georgia, "Times New Roman", serif; font-size:1.06rem; line-height:1.8; color:#272435;}
-    mark{background:rgba(216,173,83,.30); color:inherit; border-radius:5px; padding:.08em .12em;}
-    .legend{display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:10px; margin-top:14px;}
-    .legend div{border:1px solid var(--line); border-radius:16px; background:rgba(255,255,255,.48); padding:10px; color:var(--muted); font-size:.9rem;}
-    .legend strong{display:block; color:var(--ink);}
-    .work-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
-    .evidence-panel{grid-column:1 / -1; display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:12px; margin:4px 0 4px;}
-    .evidence-note{border:1px solid var(--line); border-radius:18px; background:rgba(255,255,255,.48); padding:12px; color:var(--muted); font-size:.92rem;}
-    .evidence-note strong{display:block; color:var(--ink); margin-bottom:4px;}
-    .evidence-text{display:block; margin-top:6px; color:var(--ink); font-size:.9rem; line-height:1.45; max-height:110px; overflow:auto; white-space:pre-wrap;}
-    .box{border:1px solid var(--line); border-radius:22px; background:rgba(255,255,255,.50); padding:16px;}
+
+    .card{
+      background:rgba(255,250,241,.86);
+      border:1px solid var(--line);
+      border-radius:28px;
+      box-shadow:var(--shadowsoft);
+      padding:28px;
+    }
+
+    .sub{
+      margin:0 0 18px;
+      color:var(--muted);
+      max-width:820px;
+    }
+
+    .source-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+      margin:16px 0 18px;
+      padding:12px 14px;
+      border:1px solid rgba(183,95,58,.22);
+      border-radius:18px;
+      background:rgba(255,255,255,.50);
+    }
+
+    .source-row strong{
+      font-size:.92rem;
+      margin-right:2px;
+    }
+
+    .source-row a{
+      display:inline-flex;
+      align-items:center;
+      text-decoration:none;
+      color:var(--claydark);
+      border:1px solid rgba(183,95,58,.28);
+      background:rgba(255,250,241,.86);
+      border-radius:999px;
+      padding:6px 10px;
+      font-size:.88rem;
+      font-weight:800;
+    }
+
+    .callout{
+      border-left:5px solid var(--clay);
+      background:rgba(183,95,58,.08);
+      border-radius:18px;
+      padding:16px 18px;
+      margin:18px 0;
+    }
+
+    .callout p{
+      margin:0;
+      color:var(--muted);
+    }
+
+    .click-note{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      margin:0 0 14px;
+      border:1px solid rgba(216,173,83,.38);
+      border-radius:18px;
+      background:rgba(216,173,83,.13);
+      padding:13px 15px;
+      color:var(--muted);
+    }
+
+    .click-note strong{color:var(--claydark);}
+
+    .click-note span{
+      display:inline-flex;
+      justify-content:center;
+      align-items:center;
+      flex:0 0 auto;
+      width:28px;
+      height:28px;
+      border-radius:999px;
+      background:rgba(183,95,58,.16);
+      color:var(--claydark);
+      font-weight:800;
+    }
+
+    .click-note p{margin:0;}
+
+    .model-box{
+      background:#fffdf8;
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:24px;
+      font-family:Georgia, "Times New Roman", serif;
+      font-size:1.06rem;
+      line-height:1.8;
+      color:#272435;
+    }
+
+    mark{
+      background:rgba(216,173,83,.30);
+      color:inherit;
+      border-radius:5px;
+      padding:.08em .12em;
+    }
+
+    .source-click{
+      appearance:none;
+      -webkit-appearance:none;
+      display:inline;
+      border:0;
+      background:rgba(216,173,83,.34);
+      color:inherit;
+      border-radius:7px;
+      padding:.05em .14em;
+      margin:0;
+      font:inherit;
+      font-family:inherit;
+      line-height:inherit;
+      cursor:pointer;
+      box-shadow:none;
+      text-align:left;
+      text-decoration:underline;
+      text-decoration-thickness:1px;
+      text-underline-offset:3px;
+      vertical-align:baseline;
+    }
+
+    .source-quote{
+      background:rgba(216,173,83,.20);
+      border-radius:7px;
+      padding:.05em .12em;
+    }
+
+    .source-click:hover{background:rgba(183,95,58,.22);}
+
+    .source-click:focus{
+      box-shadow:var(--focus);
+      outline:none;
+    }
+
+    .source-click.active{
+      background:rgba(183,95,58,.30);
+      box-shadow:0 0 0 2px rgba(183,95,58,.25);
+    }
+
+    .comparison-card{
+      display:none;
+      margin-top:18px;
+      border:1px solid rgba(183,95,58,.24);
+      border-radius:24px;
+      background:linear-gradient(135deg, rgba(255,250,241,.98), rgba(247,240,229,.92));
+      box-shadow:var(--shadowsoft);
+      padding:22px;
+    }
+
+    .comparison-card.show{display:block;}
+
+    .comparison-label{
+      margin:0 0 8px;
+      color:var(--claydark);
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-size:.76rem;
+      font-weight:800;
+    }
+
+    .compare-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      margin:14px 0;
+    }
+
+    .compare-box{
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:rgba(255,255,255,.56);
+      padding:14px;
+    }
+
+    .compare-box strong{
+      display:block;
+      margin-bottom:6px;
+      color:var(--ink);
+      font-size:.94rem;
+    }
+
+    .compare-box p{
+      margin:0;
+      color:var(--muted);
+    }
+
+    .compare-note{
+      border-left:5px solid var(--sage);
+      background:rgba(139,155,120,.12);
+      border-radius:16px;
+      padding:13px 15px;
+      margin-top:14px;
+      color:var(--muted);
+    }
+
+    .stronger-example{
+      display:none;
+      margin-top:14px;
+      border:1px solid rgba(183,95,58,.22);
+      border-radius:18px;
+      background:rgba(183,95,58,.07);
+      padding:14px;
+    }
+
+    .stronger-example.show{display:block;}
+
+    .stronger-example strong{
+      display:block;
+      color:var(--claydark);
+      margin-bottom:6px;
+      font-size:.94rem;
+    }
+
+    .stronger-example p{
+      margin:0;
+      color:var(--ink);
+    }
+
+    .legend{
+      display:grid;
+      grid-template-columns:repeat(4, minmax(0,1fr));
+      gap:10px;
+      margin-top:14px;
+    }
+
+    .legend div{
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:rgba(255,255,255,.48);
+      padding:10px;
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    .legend strong{
+      display:block;
+      color:var(--ink);
+    }
+
+    .work-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
+
+    .evidence-panel{
+      grid-column:1 / -1;
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:12px;
+      margin:4px 0 4px;
+    }
+
+    .evidence-note{
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:rgba(255,255,255,.48);
+      padding:12px;
+      color:var(--muted);
+      font-size:.92rem;
+    }
+
+    .evidence-note strong{
+      display:block;
+      color:var(--ink);
+      margin-bottom:4px;
+    }
+
+    .evidence-text{
+      display:block;
+      margin-top:6px;
+      color:var(--ink);
+      font-size:.9rem;
+      line-height:1.45;
+      max-height:110px;
+      overflow:auto;
+      white-space:pre-wrap;
+    }
+
+    .box{
+      border:1px solid var(--line);
+      border-radius:22px;
+      background:rgba(255,255,255,.50);
+      padding:16px;
+    }
+
     .box.full{grid-column:1 / -1;}
-    label{display:block; font-weight:800; color:var(--ink); margin:0 0 8px; font-size:.96rem;}
-    textarea,input{width:100%; border:1px solid var(--line); border-radius:18px; background:#fffdf8; color:var(--ink); padding:14px 15px; outline:none; resize:vertical;}
+
+    label{
+      display:block;
+      font-weight:800;
+      color:var(--ink);
+      margin:0 0 8px;
+      font-size:.96rem;
+    }
+
+    textarea,input{
+      width:100%;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:#fffdf8;
+      color:var(--ink);
+      padding:14px 15px;
+      outline:none;
+      resize:vertical;
+    }
+
     textarea{min-height:118px;}
     input{height:52px;}
-    textarea:focus,input:focus,button:focus,a:focus{box-shadow:var(--focus); outline:none; border-color:rgba(183,95,58,.58);}
-    .help{margin:6px 0 0; color:var(--muted); font-size:.9rem;}
-    .warning{display:none; margin:8px 0 0; color:var(--bad); background:rgba(163,58,46,.08); border:1px solid rgba(163,58,46,.25); border-radius:14px; padding:9px 11px; font-size:.9rem; line-height:1.4;}
+
+    textarea:focus,input:focus,button:focus,a:focus{
+      box-shadow:var(--focus);
+      outline:none;
+      border-color:rgba(183,95,58,.58);
+    }
+
+    .help{
+      margin:6px 0 0;
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    .warning{
+      display:none;
+      margin:8px 0 0;
+      color:var(--bad);
+      background:rgba(163,58,46,.08);
+      border:1px solid rgba(163,58,46,.25);
+      border-radius:14px;
+      padding:9px 11px;
+      font-size:.9rem;
+      line-height:1.4;
+    }
+
     .warning.show{display:block;}
-    .copy-lock{display:none; margin:0 0 18px; border:1px solid rgba(163,58,46,.28); border-left:6px solid var(--bad); border-radius:20px; background:rgba(163,58,46,.08); padding:14px 16px; box-shadow:var(--shadowsoft);}
+
+    .copy-lock{
+      display:none;
+      margin:0 0 18px;
+      border:1px solid rgba(163,58,46,.28);
+      border-left:6px solid var(--bad);
+      border-radius:20px;
+      background:rgba(163,58,46,.08);
+      padding:14px 16px;
+      box-shadow:var(--shadowsoft);
+    }
+
     .copy-lock.show{display:block;}
-    .copy-lock strong{display:block; color:var(--bad); margin-bottom:4px;}
-    .box.locked{border-color:rgba(163,58,46,.45); background:rgba(163,58,46,.06);}
-    .button-row{display:flex; flex-wrap:wrap; gap:10px; margin-top:20px; align-items:center;}
-    button{border:0; border-radius:999px; background:var(--clay); color:#fffaf1; padding:11px 16px; font-weight:800; cursor:pointer; box-shadow:0 9px 18px rgba(183,95,58,.18);}
+
+    .copy-lock strong{
+      display:block;
+      color:var(--bad);
+      margin-bottom:4px;
+    }
+
+    .box.locked{
+      border-color:rgba(163,58,46,.45);
+      background:rgba(163,58,46,.06);
+    }
+
+    .button-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:20px;
+      align-items:center;
+    }
+
+    button{
+      border:0;
+      border-radius:999px;
+      background:var(--clay);
+      color:#fffaf1;
+      padding:11px 16px;
+      font-weight:800;
+      cursor:pointer;
+      box-shadow:0 9px 18px rgba(183,95,58,.18);
+    }
+
     button:hover{background:var(--claydark);}
     button.secondary{background:var(--plum);}
     button.secondary:hover{background:#24182c;}
-    button.ghost{background:transparent; color:var(--claydark); border:1px solid rgba(183,95,58,.34); box-shadow:none;}
+
+    button.ghost{
+      background:transparent;
+      color:var(--claydark);
+      border:1px solid rgba(183,95,58,.34);
+      box-shadow:none;
+    }
+
     button.ghost:hover{background:rgba(183,95,58,.08);}
-    .status{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:12px; margin-top:16px;}
-    .status-card{border:1px solid var(--line); border-radius:18px; background:rgba(255,255,255,.52); padding:12px; font-size:.9rem; color:var(--muted);}
-    .status-card strong{display:block; color:var(--ink); font-size:1rem;}
-    .status-card.good{border-color:rgba(52,116,80,.34); background:rgba(52,116,80,.08);}
-    .status-card.bad{border-color:rgba(163,58,46,.32); background:rgba(163,58,46,.08);}
-    .status-card.warn{border-color:rgba(155,93,23,.32); background:rgba(155,93,23,.08);}
+
+    .status{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:12px;
+      margin-top:16px;
+    }
+
+    .status-card{
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:rgba(255,255,255,.52);
+      padding:12px;
+      font-size:.9rem;
+      color:var(--muted);
+    }
+
+    .status-card strong{
+      display:block;
+      color:var(--ink);
+      font-size:1rem;
+    }
+
+    .status-card.good{
+      border-color:rgba(52,116,80,.34);
+      background:rgba(52,116,80,.08);
+    }
+
+    .status-card.bad{
+      border-color:rgba(163,58,46,.32);
+      background:rgba(163,58,46,.08);
+    }
+
+    .status-card.warn{
+      border-color:rgba(155,93,23,.32);
+      background:rgba(155,93,23,.08);
+    }
+
     .final textarea{min-height:310px;}
     .print-only{display:none;}
-    @media (max-width:850px){.hero-grid,.work-grid,.legend,.status,.evidence-panel{grid-template-columns:1fr;} .box.full{grid-column:auto;} .hero{padding:26px;} .card{padding:22px;} .tool-bar{border-radius:22px; align-items:flex-start;}}
-    @media (max-width:560px){body{font-size:16px;} .shell{padding:16px 12px 50px;} .hero{border-radius:26px;}}
-    @media print{body{background:white; color:black; font-size:12pt;} .hero,.tool-bar,.example-card,.button-row,.no-print,.status{display:none !important;} .shell{max-width:none; padding:0;} .card{display:block; box-shadow:none; border:0; padding:0; background:white;} .card > *:not(.print-only){display:none !important;} .print-only{display:block;} .print-title{font-family:Georgia, "Times New Roman", serif; font-size:20pt; margin:0 0 12pt;} .print-content{white-space:pre-wrap; line-height:1.55;}}
+
+    @media (max-width:850px){
+      .hero-grid,
+      .work-grid,
+      .legend,
+      .status,
+      .evidence-panel,
+      .compare-grid{
+        grid-template-columns:1fr;
+      }
+
+      .box.full{grid-column:auto;}
+      .hero{padding:26px;}
+      .card{padding:22px;}
+      .tool-bar{
+        border-radius:22px;
+        align-items:flex-start;
+      }
+    }
+
+    @media (max-width:560px){
+      body{font-size:16px;}
+      .shell{padding:16px 12px 50px;}
+      .hero{border-radius:26px;}
+    }
+
+    @media print{
+      body{
+        background:white;
+        color:black;
+        font-size:12pt;
+      }
+
+      .hero,
+      .tool-bar,
+      .example-card,
+      .button-row,
+      .no-print,
+      .status{
+        display:none !important;
+      }
+
+      .shell{
+        max-width:none;
+        padding:0;
+      }
+
+      .card{
+        display:block;
+        box-shadow:none;
+        border:0;
+        padding:0;
+        background:white;
+      }
+
+      .card > *:not(.print-only){display:none !important;}
+      .print-only{display:block;}
+
+      .print-title{
+        font-family:Georgia, "Times New Roman", serif;
+        font-size:20pt;
+        margin:0 0 12pt;
+      }
+
+      .print-content{
+        white-space:pre-wrap;
+        line-height:1.55;
+      }
+    }
   </style>
 </head>
 <body>
@@ -117,7 +744,12 @@
         <aside class="hero-panel" aria-label="Assignment requirements">
           <h3>What you submit</h3>
           <p>One final paragraph with source integration.</p>
-          <ul class="mini-list"><li>1 direct quote</li><li>2 paraphrases</li><li>3 in-text citations</li><li>A short explanation of why the evidence matters</li></ul>
+          <ul class="mini-list">
+            <li>1 direct quote</li>
+            <li>2 paraphrases</li>
+            <li>3 in-text citations</li>
+            <li>A short explanation of why the evidence matters</li>
+          </ul>
         </aside>
       </div>
     </header>
@@ -136,36 +768,146 @@
       <section class="card example-card page-screen active" data-page="example" aria-label="Example section">
         <p class="kicker">Step 1</p>
         <h2>Look at the example</h2>
-        <p class="sub">This is only here to show the pattern. Do not copy this wording into your answer.</p>
-        <div class="source-row"><strong>Example sources:</strong><a href="jobfinderfirstresponder.pdf" target="_blank" rel="noopener">Open first responder PDF</a><a href="https://www.bls.gov/ooh/healthcare/emts-and-paramedics.htm" target="_blank" rel="noopener">Open EMT BLS source</a></div>
-        <div class="callout"><p><strong>Rule:</strong> if you learned the information from a source, cite it. This is true even when you put the information into your own words.</p></div>
-        <div class="model-box">Being an EMT or paramedic means dealing with emergencies and helping people right away. The Bureau of Labor Statistics says EMTs and paramedics <mark>“provide emergency medical care”</mark> and sometimes also transport patients to medical facilities <mark>(Bureau of Labor Statistics)</mark>. The BLS also explains that the job can be stressful and physically hard, and that workers may have to work nights, weekends, and holidays <mark>(Bureau of Labor Statistics)</mark>. The CareerOneStop source also shows that people entering this field need to pay attention to training, licensing, or certification requirements <mark>(CareerOneStop)</mark>. Together, these sources show that becoming an EMT is not just about wanting to help people. It also requires training, careful preparation, and an understanding of the working conditions.</div>
-        <div class="legend"><div><strong>Quote</strong>Exact source words in quotation marks.</div><div><strong>Paraphrase</strong>Source information in your own words.</div><div><strong>Citation</strong>The source name in parentheses.</div><div><strong>Explanation</strong>Your own sentence explaining why it matters.</div></div>
-        <div class="button-row no-print"><button type="button" data-next="evidence">Next: collect my evidence</button></div>
+
+        <div class="source-row">
+          <strong>Example sources:</strong>
+          <a href="jobfinderfirstresponder.pdf" target="_blank" rel="noopener">Open first responder PDF</a>
+          <a href="https://www.bls.gov/ooh/healthcare/emts-and-paramedics.htm" target="_blank" rel="noopener">Open EMT BLS source</a>
+        </div>
+
+        <div class="callout">
+          <p><strong>Rule:</strong> if you learned the information from a source, cite it. This is true even when you put the information into your own words.</p>
+        </div>
+
+        <div class="click-note">
+          <span>!</span>
+          <p><strong>Click the highlighted citations in the example.</strong> Each one will show you how the writer used a quote, paraphrase, or citation from the original source.</p>
+        </div>
+
+        <div class="model-box">
+          Being an EMT or paramedic means dealing with emergencies and helping people right away.
+          The Bureau of Labor Statistics says EMTs and paramedics
+          <button type="button" class="source-click" data-compare="quote-care">“provide emergency medical care”</button>
+          and sometimes also transport patients to medical facilities
+          <button type="button" class="source-click" data-compare="citation-bls-quote">(Bureau of Labor Statistics)</button>.
+          The BLS also explains that the job can be stressful and physically hard, and that workers may have to work nights, weekends, and holidays
+          <button type="button" class="source-click" data-compare="paraphrase-bls">(Bureau of Labor Statistics)</button>.
+          The CareerOneStop source also shows that people entering this field need to pay attention to training, licensing, or certification requirements
+          <button type="button" class="source-click" data-compare="paraphrase-cos">(CareerOneStop)</button>.
+          Together, these sources show that becoming an EMT is not just about wanting to help people. It also requires training, careful preparation, and an understanding of the working conditions.
+        </div>
+
+        <div class="comparison-card" id="comparisonCard" aria-live="polite">
+          <p class="comparison-label" id="comparisonLabel">Click a highlight</p>
+          <h3 id="comparisonTitle">Compare the example to the original source</h3>
+
+          <div class="compare-grid">
+            <div class="compare-box">
+              <strong>Example paragraph uses:</strong>
+              <p id="comparisonExample">Click one of the highlighted parts above.</p>
+            </div>
+
+            <div class="compare-box">
+              <strong id="comparisonOriginalLabel">Original source says:</strong>
+              <p id="comparisonOriginal">The matching source language will show here.</p>
+            </div>
+          </div>
+
+          <div class="compare-note" id="comparisonNote">
+            This will explain whether the highlighted part is a quote, paraphrase, or citation.
+          </div>
+
+          <div class="stronger-example" id="strongerExampleBox">
+            <strong>A stronger paraphrase:</strong>
+            <p id="strongerExampleText"></p>
+          </div>
+        </div>
+
+        <div class="legend">
+          <div><strong>Quote</strong>Exact source words in quotation marks.</div>
+          <div><strong>Paraphrase</strong>Source information in your own words.</div>
+          <div><strong>Citation</strong>The source name in parentheses.</div>
+          <div><strong>Explanation</strong>Your own sentence explaining why it matters.</div>
+        </div>
+
+        <div class="button-row no-print">
+          <button type="button" data-next="evidence">Next: collect my evidence</button>
+        </div>
       </section>
 
       <section class="card page-screen" data-page="evidence" aria-label="Student work section">
         <p class="kicker">Step 2</p>
         <h2>Collect your evidence</h2>
-        <p class="sub">Use BLS and CareerOneStop for the career you are researching. Paste the evidence first. Then the page can check whether your paragraph uses that evidence correctly.</p>
-        <div class="copy-lock no-print" id="copyLock"><strong>Do not copy the example.</strong>This is cheating. Changing only the career field is not enough. Rewrite the flagged box in your own words before submitting.</div>
+        <p class="sub">Use BLS and CareerOneStop for the career you are researching. Paste the evidence first. Then you can check whether your paragraph uses that evidence correctly.</p>
 
-        <div class="work-grid">
-          <div class="box full" id="boxCareer"><label for="career">My selected career</label><input id="career" placeholder="Example: dental hygienist, software developer, elementary school teacher"><p class="help">Use the career you are researching for your essay.</p><div class="warning" id="warnCareer"></div></div>
-
-          <div class="box" id="boxBls"><label for="blsUrl">BLS source URL</label><div class="source-row"><strong>Find it here:</strong><a href="https://www.bls.gov/ooh/" target="_blank" rel="noopener">Open BLS Occupational Outlook Handbook</a></div><input id="blsUrl" placeholder="Paste the BLS page URL"><p class="help">This should usually include bls.gov/ooh in the link.</p><div class="warning" id="warnBlsUrl"></div></div>
-
-          <div class="box" id="boxCos"><label for="cosUrl">CareerOneStop source URL</label><div class="source-row"><strong>Find it here:</strong><a href="https://www.careeronestop.org/Toolkit/Careers/careers.aspx" target="_blank" rel="noopener">Open CareerOneStop</a></div><input id="cosUrl" placeholder="Paste the CareerOneStop page URL"><p class="help">This should usually include careeronestop.org in the link.</p><div class="warning" id="warnCosUrl"></div></div>
-
-          <div class="box" id="boxQuote"><label for="quoteEvidence">Exact quote I might use</label><textarea id="quoteEvidence" placeholder="Paste one short exact sentence or phrase from one source. Do not rewrite it here."></textarea><p class="help">You will use this exact wording in quotation marks in your paragraph.</p><div class="warning" id="warnQuote"></div></div>
-
-          <div class="box" id="boxBlsFact"><label for="blsFact">BLS fact I will paraphrase</label><textarea id="blsFact" placeholder="Paste one BLS fact you plan to put into your own words."></textarea><p class="help">In the paragraph, this should not be copied word for word.</p><div class="warning" id="warnBlsFact"></div></div>
-
-          <div class="box" id="boxCosFact"><label for="cosFact">CareerOneStop fact I will paraphrase</label><textarea id="cosFact" placeholder="Paste one CareerOneStop fact you plan to put into your own words."></textarea><p class="help">In the paragraph, this should not be copied word for word.</p><div class="warning" id="warnCosFact"></div></div>
+        <div class="copy-lock no-print" id="copyLock">
+          <strong>Do not copy the example.</strong>
+          This is cheating. Changing only the career field is not enough. Rewrite the flagged box in your own words before submitting.
         </div>
 
-        <div class="button-row"><button type="button" id="checkEvidenceBtn">Check my evidence</button><button type="button" class="secondary" data-next="writing">Next: write the paragraph</button><button type="button" class="ghost" data-next="example">Back to example</button></div>
-        <div class="status no-print"><div class="status-card warn" id="sourceStatus"><strong>Sources</strong><span>Not checked yet.</span></div><div class="status-card warn" id="evidenceStatus"><strong>Evidence</strong><span>Not checked yet.</span></div><div class="status-card warn" id="copyStatus"><strong>Copy check</strong><span>Not checked yet.</span></div></div>
+        <div class="work-grid">
+          <div class="box full" id="boxCareer">
+            <label for="career">My selected career</label>
+            <input id="career" placeholder="Example: dental hygienist, software developer, elementary school teacher">
+            <p class="help">Use the career you are researching for your essay.</p>
+            <div class="warning" id="warnCareer"></div>
+          </div>
+
+          <div class="box" id="boxBls">
+            <label for="blsUrl">BLS source URL</label>
+            <div class="source-row">
+              <strong>Find it here:</strong>
+              <a href="https://www.bls.gov/ooh/" target="_blank" rel="noopener">Open BLS Occupational Outlook Handbook</a>
+            </div>
+            <input id="blsUrl" placeholder="Paste the BLS page URL">
+            <p class="help">This should usually include bls.gov/ooh in the link.</p>
+            <div class="warning" id="warnBlsUrl"></div>
+          </div>
+
+          <div class="box" id="boxCos">
+            <label for="cosUrl">CareerOneStop source URL</label>
+            <div class="source-row">
+              <strong>Find it here:</strong>
+              <a href="https://www.careeronestop.org/Toolkit/Careers/careers.aspx" target="_blank" rel="noopener">Open CareerOneStop</a>
+            </div>
+            <input id="cosUrl" placeholder="Paste the CareerOneStop page URL">
+            <p class="help">This should usually include careeronestop.org in the link.</p>
+            <div class="warning" id="warnCosUrl"></div>
+          </div>
+
+          <div class="box" id="boxQuote">
+            <label for="quoteEvidence">Exact quote I will use</label>
+            <textarea id="quoteEvidence" placeholder="Paste one short exact sentence or phrase from one source. Do not rewrite it here."></textarea>
+            <p class="help">You will use this exact wording in quotation marks in your paragraph.</p>
+            <div class="warning" id="warnQuote"></div>
+          </div>
+
+          <div class="box" id="boxBlsFact">
+            <label for="blsFact">BLS fact I will paraphrase</label>
+            <textarea id="blsFact" placeholder="Paste one BLS fact you plan to put into your own words."></textarea>
+            <p class="help">In the paragraph, this should not be copied word for word.</p>
+            <div class="warning" id="warnBlsFact"></div>
+          </div>
+
+          <div class="box" id="boxCosFact">
+            <label for="cosFact">CareerOneStop fact I will paraphrase</label>
+            <textarea id="cosFact" placeholder="Paste one CareerOneStop fact you plan to put into your own words."></textarea>
+            <p class="help">In the paragraph, this should not be copied word for word.</p>
+            <div class="warning" id="warnCosFact"></div>
+          </div>
+        </div>
+
+        <div class="button-row">
+          <button type="button" id="checkEvidenceBtn">Check my evidence</button>
+          <button type="button" class="secondary" data-next="writing">Next: write the paragraph</button>
+          <button type="button" class="ghost" data-next="example">Back to example</button>
+        </div>
+
+        <div class="status no-print">
+          <div class="status-card warn" id="sourceStatus"><strong>Sources</strong><span>Not checked yet.</span></div>
+          <div class="status-card warn" id="evidenceStatus"><strong>Evidence</strong><span>Not checked yet.</span></div>
+          <div class="status-card warn" id="copyStatus"><strong>Copy check</strong><span>Not checked yet.</span></div>
+        </div>
       </section>
 
       <section class="card page-screen" data-page="writing" aria-label="Paragraph drafting section">
@@ -175,139 +917,456 @@
 
         <div class="work-grid">
           <div class="evidence-panel no-print" aria-label="Evidence you collected">
-            <div class="evidence-note"><strong>Your quote</strong><span class="evidence-text" id="quotePreview">This will show the exact quote you pasted above.</span></div>
-            <div class="evidence-note"><strong>BLS fact to paraphrase</strong><span class="evidence-text" id="blsPreview">This will show the BLS fact you pasted above.</span></div>
-            <div class="evidence-note"><strong>CareerOneStop fact to paraphrase</strong><span class="evidence-text" id="cosPreview">This will show the CareerOneStop fact you pasted above.</span></div>
+            <div class="evidence-note">
+              <strong>Your quote</strong>
+              <span class="evidence-text" id="quotePreview">This will show the exact quote you pasted above.</span>
+            </div>
+            <div class="evidence-note">
+              <strong>BLS fact to paraphrase</strong>
+              <span class="evidence-text" id="blsPreview">This will show the BLS fact you pasted above.</span>
+            </div>
+            <div class="evidence-note">
+              <strong>CareerOneStop fact to paraphrase</strong>
+              <span class="evidence-text" id="cosPreview">This will show the CareerOneStop fact you pasted above.</span>
+            </div>
           </div>
-          <div class="box full" id="boxParagraph"><label for="paragraph">Paragraph draft</label><textarea id="paragraph" placeholder="Write 8 to 10 sentences. Include one quote, two paraphrases, and citations after borrowed information."></textarea><p class="help">Use citations like (Bureau of Labor Statistics) and (CareerOneStop).</p><div class="warning" id="warnParagraph"></div></div>
 
+          <div class="box full" id="boxParagraph">
+            <label for="paragraph">Paragraph draft</label>
+            <textarea id="paragraph" placeholder="Write 8 to 10 sentences. Include one quote, two paraphrases, and citations after borrowed information."></textarea>
+            <p class="help">Use citations like (Bureau of Labor Statistics) and (CareerOneStop).</p>
+            <div class="warning" id="warnParagraph"></div>
           </div>
+        </div>
 
-        <div class="button-row"><button type="button" id="reviewBtn">Review my source integration</button><button type="button" class="secondary" id="finalBtn">Build final submission</button><button type="button" class="ghost" data-next="evidence">Back to evidence</button></div>
-        <div class="status no-print"><div class="status-card warn" id="quoteStatus"><strong>Quote</strong><span>Not checked yet.</span></div><div class="status-card warn" id="paraStatus"><strong>Paraphrases</strong><span>Not checked yet.</span></div><div class="status-card warn" id="citeStatus"><strong>Citations</strong><span>Not checked yet.</span></div></div>
+        <div class="button-row">
+          <button type="button" id="reviewBtn">Review my source integration</button>
+          <button type="button" class="secondary" id="finalBtn">Build final submission</button>
+          <button type="button" class="ghost" data-next="evidence">Back to evidence</button>
+        </div>
+
+        <div class="status no-print">
+          <div class="status-card warn" id="quoteStatus"><strong>Quote</strong><span>Not checked yet.</span></div>
+          <div class="status-card warn" id="paraStatus"><strong>Paraphrases</strong><span>Not checked yet.</span></div>
+          <div class="status-card warn" id="citeStatus"><strong>Citations</strong><span>Not checked yet.</span></div>
+        </div>
       </section>
 
       <section class="card final page-screen" data-page="writing" aria-label="Final submission section">
         <p class="kicker">Step 4</p>
         <h2>Final submission</h2>
         <p class="sub">After the review looks ready, submit this final version to Canvas.</p>
-        <label for="finalOutput">Final copy</label><textarea id="finalOutput" placeholder="Click Build final submission."></textarea>
-        <div class="button-row no-print"><button type="button" class="secondary" id="printBtnBottom">Print / Save as PDF</button></div>
-        <div class="print-only"><h1 class="print-title">Source Integration Practice</h1><div class="print-content" id="printContent"></div></div>
+        <label for="finalOutput">Final copy</label>
+        <textarea id="finalOutput" placeholder="Click Build final submission."></textarea>
+        <div class="button-row no-print">
+          <button type="button" class="secondary" id="printBtnBottom">Print / Save as PDF</button>
+        </div>
+        <div class="print-only">
+          <h1 class="print-title">Source Integration Practice</h1>
+          <div class="print-content" id="printContent"></div>
+        </div>
       </section>
     </main>
   </div>
 
   <script>
     (function(){
-      var STORAGE_KEY = "eng101-source-integration-clean-career-v1";
+      var STORAGE_KEY = "eng101-source-integration-clean-career-v2";
       var fields = ["career","blsUrl","cosUrl","quoteEvidence","blsFact","cosFact","paragraph","finalOutput"];
+
+      var comparisonData = {
+        "quote-care": {
+          label: "Direct quote with citation",
+          title: "You clicked the citation for a direct quote",
+          example: "“provide emergency medical care”",
+          original: "Emergency medical technicians (EMTs) and paramedics assess injuries and illnesses, provide emergency medical care, and may transport patients to medical facilities.",
+          note: "The writer borrowed the exact words “provide emergency medical care,” so those words need quotation marks. They did not quote the whole sentence because they only needed the most useful phrase."
+        },
+        "citation-bls-quote": {
+          label: "In-text citation",
+          title: "You clicked the citation for the BLS quote",
+          example: "(Bureau of Labor Statistics)",
+          original: "The quote comes from the Bureau of Labor Statistics page about EMTs and paramedics.",
+          note: "The citation goes right after the borrowed information. It tells the reader where the quote came from."
+        },
+        "paraphrase-bls": {
+          label: "Too-close paraphrase",
+          title: "You clicked a paraphrase that is still too close",
+          example: "The BLS also explains that the job can be stressful and physically hard, and that workers may have to work nights, weekends, and holidays.",
+          original: "Most EMTs and paramedics work full time, and some work more than 40 hours per week. Schedules may vary to include nights, weekends, and holidays. Their work may be physically strenuous and stressful, sometimes involving life-or-death situations.",
+          note: "This is understandable, but it is still too close to the original source. It keeps much of the same order and swaps only a few words. A stronger paraphrase should change the structure more while keeping the meaning accurate.",
+          stronger: "Emergency medical work can place pressure on EMTs because the job may involve physically demanding situations, high-stress calls, and irregular hours such as overnight, weekend, or holiday shifts (Bureau of Labor Statistics)."
+        },
+        "paraphrase-cos": {
+          label: "Second source citation",
+          title: "You clicked a CareerOneStop paraphrase",
+          example: "The CareerOneStop source also shows that people entering this field need to pay attention to training, licensing, or certification requirements.",
+          originalLabel: "Source information:",
+          original: "CareerOneStop organizes career details in sections such as training, credentials, licenses, and certifications. This is a source summary, not an exact sentence from the page.",
+          note: "This example is using information from a different source, so the citation changes. When you summarize information from a page, you still need to cite that page even if you are not copying an exact sentence."
+        }
+      };
+
       function byId(id){ return document.getElementById(id); }
-      function showPage(page){
-        var screens = document.querySelectorAll('[data-page]');
-        for(var i=0;i<screens.length;i++){
-          screens[i].classList.toggle('active', screens[i].getAttribute('data-page') === page);
-        }
-        var tabs = document.querySelectorAll('[data-target]');
-        for(var t=0;t<tabs.length;t++){
-          tabs[t].classList.toggle('active', tabs[t].getAttribute('data-target') === page);
-        }
-        window.scrollTo({top:0, behavior:'smooth'});
+
+      function value(id){
+        var el = byId(id);
+        return el ? el.value || "" : "";
       }
-      function value(id){ var el = byId(id); return el ? el.value || "" : ""; }
-      function setValue(id, v){ var el = byId(id); if(el){ el.value = v || ""; } }
-      function setText(id, v){ var el = byId(id); if(el){ var span = el.querySelector("span"); if(span){ span.textContent = v; } } }
-      function setStatus(id, state, msg){ var el = byId(id); if(!el){ return; } el.classList.remove("good","bad","warn"); el.classList.add(state); setText(id, msg); }
-      function warn(id, msg){ var el = byId(id); if(!el){ return; } if(msg){ el.textContent = msg; el.classList.add("show"); } else { el.textContent = ""; el.classList.remove("show"); } }
-      function box(id, locked){ var el = byId(id); if(el){ el.classList.toggle("locked", !!locked); } }
-      function clean(t){ var s = (t || "").toLowerCase(); var marks = [".",",",";",":","!","?","(",")","[","]","“","”","\"","'","/","-",":"]; for(var i=0;i<marks.length;i++){ s = s.split(marks[i]).join(" "); } while(s.indexOf("  ") !== -1){ s = s.split("  ").join(" "); } return s.trim(); }
-      function hasUrlPart(id, part){ return clean(value(id)).indexOf(part) !== -1; }
-      function hasCitation(text, name){ return text.indexOf("(" + name + ")") !== -1; }
-      function countCitations(text){ var count = 0; for(var i=0;i<text.length;i++){ if(text.charAt(i) === "("){ count++; } } return count; }
-      function sentenceCount(text){ var s = text || ""; var count = 0; for(var i=0;i<s.length;i++){ var c = s.charAt(i); if(c === "." || c === "!" || c === "?"){ count++; } } return count || (s.trim() ? 1 : 0); }
-      function save(){ var data = {}; fields.forEach(function(id){ data[id] = value(id); }); try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); var note = byId("saveStatus"); if(note){ note.textContent = "Autosaved just now."; } }catch(e){ var note2 = byId("saveStatus"); if(note2){ note2.textContent = "Autosave is not available in this browser."; } } updateEvidencePreview(); }
-      function setPreview(id, text, emptyText){ var el = byId(id); if(el){ el.textContent = text && text.trim() ? text.trim() : emptyText; } }
-      function updateEvidencePreview(){ setPreview("quotePreview", value("quoteEvidence"), "This will show the exact quote you pasted above."); setPreview("blsPreview", value("blsFact"), "This will show the BLS fact you pasted above."); setPreview("cosPreview", value("cosFact"), "This will show the CareerOneStop fact you pasted above."); }
-      function load(){ try{ var raw = localStorage.getItem(STORAGE_KEY); if(!raw){ return; } var data = JSON.parse(raw); fields.forEach(function(id){ if(data[id]){ setValue(id, data[id]); } });
-          if(value("finalOutput").indexOf("Works Cited") !== -1){ setValue("finalOutput", ""); } var note = byId("saveStatus"); if(note){ note.textContent = "Autosave restored your work."; } }catch(e){} }
-      function checkCopyLock(){ var phrases = ["being an emt or paramedic means dealing with emergencies", "provide emergency medical care", "transport patients to medical facilities", "the bls also explains", "the job can be stressful and physically hard", "work nights weekends and holidays", "not just about wanting to help people", "training careful preparation", "together these sources show"]; var text = clean(value("paragraph")); var locked = false; phrases.forEach(function(p){ if(text.indexOf(p) !== -1){ locked = true; } }); var banner = byId("copyLock"); if(banner){ banner.classList.toggle("show", locked); } box("boxParagraph", locked); if(locked){ warn("warnParagraph", "Do not copy the example. This is cheating. Changing only the career field is not enough. Rewrite this in your own words."); } return locked; }
+
+      function setValue(id, v){
+        var el = byId(id);
+        if(el){ el.value = v || ""; }
+      }
+
+      function setText(id, v){
+        var el = byId(id);
+        if(el){
+          var span = el.querySelector("span");
+          if(span){ span.textContent = v; }
+        }
+      }
+
+      function setStatus(id, state, msg){
+        var el = byId(id);
+        if(!el){ return; }
+        el.classList.remove("good","bad","warn");
+        el.classList.add(state);
+        setText(id, msg);
+      }
+
+      function warn(id, msg){
+        var el = byId(id);
+        if(!el){ return; }
+        if(msg){
+          el.textContent = msg;
+          el.classList.add("show");
+        } else {
+          el.textContent = "";
+          el.classList.remove("show");
+        }
+      }
+
+      function box(id, locked){
+        var el = byId(id);
+        if(el){ el.classList.toggle("locked", !!locked); }
+      }
+
+      function clean(t){
+        var s = (t || "").toLowerCase();
+        var marks = [".",",",";",":","!","?","(",")","[","]","“","”","\"","'","/","-",":"];
+        for(var i=0;i<marks.length;i++){
+          s = s.split(marks[i]).join(" ");
+        }
+        while(s.indexOf("  ") !== -1){
+          s = s.split("  ").join(" ");
+        }
+        return s.trim();
+      }
+
+      function hasUrlPart(id, part){
+        return clean(value(id)).indexOf(part) !== -1;
+      }
+
+      function hasCitation(text, name){
+        return text.indexOf("(" + name + ")") !== -1;
+      }
+
+      function countCitations(text){
+        var count = 0;
+        for(var i=0;i<text.length;i++){
+          if(text.charAt(i) === "("){
+            count++;
+          }
+        }
+        return count;
+      }
+
+      function sentenceCount(text){
+        var s = text || "";
+        var count = 0;
+        for(var i=0;i<s.length;i++){
+          var c = s.charAt(i);
+          if(c === "." || c === "!" || c === "?"){
+            count++;
+          }
+        }
+        return count || (s.trim() ? 1 : 0);
+      }
+
+      function showPage(page){
+        var screens = document.querySelectorAll("[data-page]");
+        for(var i=0;i<screens.length;i++){
+          screens[i].classList.toggle("active", screens[i].getAttribute("data-page") === page);
+        }
+
+        var tabs = document.querySelectorAll(".step-tab");
+        for(var t=0;t<tabs.length;t++){
+          tabs[t].classList.toggle("active", tabs[t].getAttribute("data-target") === page);
+        }
+
+        window.scrollTo({top:0, behavior:"smooth"});
+      }
+
+      function setPreview(id, text, emptyText){
+        var el = byId(id);
+        if(el){ el.textContent = text && text.trim() ? text.trim() : emptyText; }
+      }
+
+      function updateEvidencePreview(){
+        setPreview("quotePreview", value("quoteEvidence"), "This will show the exact quote you pasted above.");
+        setPreview("blsPreview", value("blsFact"), "This will show the BLS fact you pasted above.");
+        setPreview("cosPreview", value("cosFact"), "This will show the CareerOneStop fact you pasted above.");
+      }
+
+      function save(){
+        var data = {};
+        fields.forEach(function(id){ data[id] = value(id); });
+        try{
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+          var note = byId("saveStatus");
+          if(note){ note.textContent = "Autosaved just now."; }
+        }catch(e){
+          var note2 = byId("saveStatus");
+          if(note2){ note2.textContent = "Autosave is not available in this browser."; }
+        }
+        updateEvidencePreview();
+      }
+
+      function load(){
+        try{
+          var raw = localStorage.getItem(STORAGE_KEY);
+          if(!raw){ return; }
+          var data = JSON.parse(raw);
+          fields.forEach(function(id){
+            if(data[id]){ setValue(id, data[id]); }
+          });
+          var note = byId("saveStatus");
+          if(note){ note.textContent = "Autosave restored your work."; }
+        }catch(e){}
+      }
+
+      function checkCopyLock(){
+        var phrases = [
+          "being an emt or paramedic means dealing with emergencies",
+          "provide emergency medical care",
+          "transport patients to medical facilities",
+          "the bls also explains",
+          "the job can be stressful and physically hard",
+          "work nights weekends and holidays",
+          "not just about wanting to help people",
+          "training careful preparation",
+          "together these sources show"
+        ];
+
+        var text = clean(value("paragraph"));
+        var locked = false;
+        phrases.forEach(function(p){
+          if(text.indexOf(p) !== -1){ locked = true; }
+        });
+
+        var banner = byId("copyLock");
+        if(banner){ banner.classList.toggle("show", locked); }
+        box("boxParagraph", locked);
+
+        if(locked){
+          warn("warnParagraph", "Do not copy the example. This is cheating. Changing only the career field is not enough. Rewrite this in your own words.");
+        }
+        return locked;
+      }
+
       function checkEvidence(){
-        var okSources = true; var okEvidence = true;
-        warn("warnCareer", value("career").trim() ? "" : "Type the career you are researching.");
-        if(!hasUrlPart("blsUrl", "bls gov") || clean(value("blsUrl")).indexOf("ooh") === -1){ okSources = false; warn("warnBlsUrl", "This should look like a BLS Occupational Outlook Handbook link."); } else { warn("warnBlsUrl", ""); }
-        if(!hasUrlPart("cosUrl", "careeronestop org")){ okSources = false; warn("warnCosUrl", "This should look like a CareerOneStop link."); } else { warn("warnCosUrl", ""); }
-        if(value("quoteEvidence").trim().length < 12){ okEvidence = false; warn("warnQuote", "Paste one short exact quote from one of your sources."); } else { warn("warnQuote", ""); }
-        if(value("blsFact").trim().length < 18){ okEvidence = false; warn("warnBlsFact", "Paste one BLS fact you can paraphrase."); } else { warn("warnBlsFact", ""); }
-        if(value("cosFact").trim().length < 18){ okEvidence = false; warn("warnCosFact", "Paste one CareerOneStop fact you can paraphrase."); } else { warn("warnCosFact", ""); }
-        setStatus("sourceStatus", okSources && value("career").trim() ? "good" : "bad", okSources && value("career").trim() ? "Career and source links look ready." : "Check the career and source links.");
+        var okSources = true;
+        var okEvidence = true;
+        var careerReady = !!value("career").trim();
+
+        warn("warnCareer", careerReady ? "" : "Type the career you are researching.");
+
+        if(!hasUrlPart("blsUrl", "bls gov") || clean(value("blsUrl")).indexOf("ooh") === -1){
+          okSources = false;
+          warn("warnBlsUrl", "This should look like a BLS Occupational Outlook Handbook link.");
+        } else {
+          warn("warnBlsUrl", "");
+        }
+
+        if(!hasUrlPart("cosUrl", "careeronestop org")){
+          okSources = false;
+          warn("warnCosUrl", "This should look like a CareerOneStop link.");
+        } else {
+          warn("warnCosUrl", "");
+        }
+
+        if(value("quoteEvidence").trim().length < 12){
+          okEvidence = false;
+          warn("warnQuote", "Paste one short exact quote from one of your sources.");
+        } else {
+          warn("warnQuote", "");
+        }
+
+        if(value("blsFact").trim().length < 18){
+          okEvidence = false;
+          warn("warnBlsFact", "Paste one BLS fact you can paraphrase.");
+        } else {
+          warn("warnBlsFact", "");
+        }
+
+        if(value("cosFact").trim().length < 18){
+          okEvidence = false;
+          warn("warnCosFact", "Paste one CareerOneStop fact you can paraphrase.");
+        } else {
+          warn("warnCosFact", "");
+        }
+
+        setStatus("sourceStatus", okSources && careerReady ? "good" : "bad", okSources && careerReady ? "Career and source links look ready." : "Check the career and source links.");
         setStatus("evidenceStatus", okEvidence ? "good" : "bad", okEvidence ? "Evidence is ready to use." : "Add the missing evidence above.");
+
         var locked = checkCopyLock();
         setStatus("copyStatus", locked ? "bad" : "good", locked ? "Copied example language found." : "No copied example language found.");
-        return okSources && okEvidence && value("career").trim() && !locked;
+
+        return okSources && okEvidence && careerReady && !locked;
       }
+
       function sharedWordScore(sourceText, paragraphText){
         var stop = {"the":1,"and":1,"or":1,"a":1,"an":1,"to":1,"of":1,"in":1,"for":1,"on":1,"with":1,"that":1,"this":1,"is":1,"are":1,"be":1,"as":1,"by":1,"from":1,"it":1,"their":1,"they":1,"who":1,"can":1,"may":1,"also":1,"such":1,"about":1,"into":1,"all":1,"there":1};
+
         function words(t){
           var raw = clean(t).split(" ");
           var out = [];
           for(var i=0;i<raw.length;i++){
-            if(raw[i].length > 2 && !stop[raw[i]]){ out.push(raw[i]); }
+            if(raw[i].length > 2 && !stop[raw[i]]){
+              out.push(raw[i]);
+            }
           }
           return out;
         }
+
         var source = words(sourceText);
         var para = words(paragraphText);
         if(source.length < 5 || para.length < 5){ return 0; }
+
         var paraSet = {};
-        for(var p=0;p<para.length;p++){ paraSet[para[p]] = 1; }
+        for(var p=0;p<para.length;p++){
+          paraSet[para[p]] = 1;
+        }
+
         var shared = 0;
-        for(var s=0;s<source.length;s++){ if(paraSet[source[s]]){ shared++; } }
+        for(var s=0;s<source.length;s++){
+          if(paraSet[source[s]]){ shared++; }
+        }
+
         return shared / source.length;
       }
+
       function longestSharedRun(sourceText, paragraphText){
         var a = clean(sourceText).split(" ");
         var b = clean(paragraphText).split(" ");
         var best = 0;
+
         for(var i=0;i<a.length;i++){
           for(var j=0;j<b.length;j++){
             var run = 0;
-            while(a[i+run] && b[j+run] && a[i+run] === b[j+run]){ run++; }
+            while(a[i + run] && b[j + run] && a[i + run] === b[j + run]){
+              run++;
+            }
             if(run > best){ best = run; }
           }
         }
         return best;
       }
-      function tooCloseToSource(sourceText, paragraphText){
-        if(!sourceText.trim() || !paragraphText.trim()){ return false; }
-        var run = longestSharedRun(sourceText, paragraphText);
-        var score = sharedWordScore(sourceText, paragraphText);
-        return run >= 5 || score >= 0.45;
+
+      function quoteAppearsWithMarks(paragraph, quote){
+        var q = quote.trim();
+        if(!q){ return false; }
+        if(paragraph.indexOf("“" + q + "”") !== -1){ return true; }
+        if(paragraph.indexOf("\"" + q + "\"") !== -1){ return true; }
+        if(paragraph.indexOf(q) !== -1 && (paragraph.indexOf("“") !== -1 || paragraph.indexOf("\"") !== -1)){
+          return true;
+        }
+        return false;
       }
+
       function reviewParagraph(){
-        var p = value("paragraph"); var pClean = clean(p); var quote = value("quoteEvidence").trim(); var quoteClean = clean(quote); var locked = checkCopyLock();
-        var quoteReady = false; var paraReady = true; var citeReady = false;
-        if(!p.trim()){ warn("warnParagraph", "Write your paragraph before reviewing it."); }
-        else if(locked){ }
-        else { warn("warnParagraph", ""); }
-        if(quoteClean && pClean.indexOf(quoteClean) !== -1 && (p.indexOf("\"") !== -1 || p.indexOf("“") !== -1 || p.indexOf("”") !== -1)){ quoteReady = true; }
-        if(tooCloseToSource(value("blsFact"), p)){
-          paraReady = false;
-          warn("warnParagraph", "Your BLS paraphrase may still be too close to the source. A strong paraphrase changes both the wording and the sentence structure.");
-        }
-        if(tooCloseToSource(value("cosFact"), p)){
-          paraReady = false;
-          warn("warnParagraph", "Your CareerOneStop paraphrase may still be too close to the source. A strong paraphrase changes both the wording and the sentence structure.");
-        }
-        if(countCitations(p) >= 3 && hasCitation(p, "Bureau of Labor Statistics") && hasCitation(p, "CareerOneStop")){ citeReady = true; }
-        setStatus("quoteStatus", quoteReady ? "good" : "bad", quoteReady ? "Your exact quote appears in the paragraph with quotation marks." : "Use the exact quote from your evidence box and put it in quotation marks.");
-        setStatus("paraStatus", paraReady && p.trim() ? "warn" : "bad", paraReady && p.trim() ? "No major copying was detected, but check that your paraphrases change both wording and sentence structure." : "Revise paraphrases that are too close to the source wording or structure.");
-        setStatus("citeStatus", citeReady ? "good" : "bad", citeReady ? "You have 3 or more citations, including BLS and CareerOneStop." : "Add at least 3 citations, including BLS and CareerOneStop.");
-        return quoteReady && paraReady && citeReady && !locked;
-      }
-      function buildFinal(){
         checkEvidence();
+
+        var paragraph = value("paragraph").trim();
+        var quote = value("quoteEvidence").trim();
+        var blsFact = value("blsFact").trim();
+        var cosFact = value("cosFact").trim();
+        var problems = [];
+
+        if(paragraph.length < 120){
+          problems.push("Write a fuller paragraph before submitting.");
+        }
+
+        var count = sentenceCount(paragraph);
+        if(count < 6){
+          problems.push("This paragraph may be too short. Add more explanation of why the evidence matters.");
+        }
+
+        var quoteReady = false;
+        if(quote && paragraph.indexOf(quote) !== -1 && quoteAppearsWithMarks(paragraph, quote)){
+          quoteReady = true;
+        }
+
+        if(quoteReady){
+          setStatus("quoteStatus", "good", "Your exact quote appears with quotation marks.");
+        } else {
+          setStatus("quoteStatus", "bad", "Use your exact quote and put quotation marks around it.");
+          problems.push("Add the exact quote you collected and use quotation marks.");
+        }
+
+        var blsRun = longestSharedRun(blsFact, paragraph);
+        var cosRun = longestSharedRun(cosFact, paragraph);
+        var blsScore = sharedWordScore(blsFact, paragraph);
+        var cosScore = sharedWordScore(cosFact, paragraph);
+        var tooClose = false;
+
+        if(blsFact && (blsRun >= 7 || blsScore > .65)){
+          tooClose = true;
+        }
+
+        if(cosFact && (cosRun >= 7 || cosScore > .65)){
+          tooClose = true;
+        }
+
+        if(!blsFact || !cosFact){
+          setStatus("paraStatus", "warn", "Collect both paraphrase facts first.");
+        } else if(tooClose){
+          setStatus("paraStatus", "bad", "One paraphrase may be too close to the original wording.");
+          problems.push("Check your paraphrases. Try changing the sentence structure more, not just swapping a few words.");
+        } else {
+          setStatus("paraStatus", "good", "Your paraphrases do not look copied word for word.");
+        }
+
+        var citationCount = countCitations(paragraph);
+        var hasBls = hasCitation(paragraph, "Bureau of Labor Statistics");
+        var hasCos = hasCitation(paragraph, "CareerOneStop");
+
+        if(citationCount >= 3 && hasBls && hasCos){
+          setStatus("citeStatus", "good", "Your paragraph has source citations.");
+        } else {
+          setStatus("citeStatus", "bad", "Use at least 3 citations, including BLS and CareerOneStop.");
+          problems.push("Add citations after borrowed information. You should use BLS and CareerOneStop citations.");
+        }
+
+        var locked = checkCopyLock();
+        if(locked){
+          problems.push("Rewrite any copied example language in your own words.");
+        }
+
+        if(problems.length){
+          warn("warnParagraph", problems.join(" "));
+          return false;
+        }
+
+        warn("warnParagraph", "");
+        return true;
+      }
+
+      function buildFinal(){
         reviewParagraph();
-        var br = String.fromCharCode(10); var finalText = "Source Integration Practice" + br + br;
+        var br = String.fromCharCode(10);
+        var finalText = "Source Integration Practice" + br + br;
         finalText += "Career: " + value("career").trim() + br + br;
         finalText += "Sources" + br;
         finalText += "BLS URL: " + value("blsUrl").trim() + br;
@@ -318,20 +1377,92 @@
         finalText += "CareerOneStop fact to paraphrase: " + value("cosFact").trim() + br + br;
         finalText += "Paragraph" + br;
         finalText += value("paragraph").trim();
-        setValue("finalOutput", finalText); var print = byId("printContent"); if(print){ print.textContent = finalText; } save();
+
+        setValue("finalOutput", finalText);
+        var print = byId("printContent");
+        if(print){ print.textContent = finalText; }
+        save();
       }
-      function printPage(){ if(!value("finalOutput").trim()){ buildFinal(); } var print = byId("printContent"); if(print){ print.textContent = value("finalOutput"); } window.print(); }
-      load(); updateEvidencePreview(); fields.forEach(function(id){ var el = byId(id); if(el){ el.addEventListener("input", function(){ save(); checkCopyLock(); updateEvidencePreview(); }); el.addEventListener("paste", function(){ setTimeout(function(){ save(); checkCopyLock(); updateEvidencePreview(); }, 25); }); } });
-      var pageButtons = document.querySelectorAll('[data-target], [data-next]');
-      for(var b=0;b<pageButtons.length;b++){
-        pageButtons[b].addEventListener('click', function(){ showPage(this.getAttribute('data-target') || this.getAttribute('data-next')); });
+
+      function setupComparisonClicks(){
+        var buttons = document.querySelectorAll(".source-click");
+        var card = byId("comparisonCard");
+        var label = byId("comparisonLabel");
+        var title = byId("comparisonTitle");
+        var example = byId("comparisonExample");
+        var original = byId("comparisonOriginal");
+        var originalLabel = byId("comparisonOriginalLabel");
+        var note = byId("comparisonNote");
+        var strongerBox = byId("strongerExampleBox");
+        var strongerText = byId("strongerExampleText");
+
+        if(!buttons.length || !card){ return; }
+
+        buttons.forEach(function(button){
+          button.addEventListener("click", function(){
+            var key = button.getAttribute("data-compare");
+            var item = comparisonData[key];
+            if(!item){ return; }
+
+            buttons.forEach(function(b){ b.classList.remove("active"); });
+            button.classList.add("active");
+
+            label.textContent = item.label;
+            title.textContent = item.title;
+            example.textContent = item.example;
+            original.textContent = item.original;
+            originalLabel.textContent = item.originalLabel || "Original source says:";
+            note.textContent = item.note;
+
+            if(item.stronger){
+              strongerText.textContent = item.stronger;
+              strongerBox.classList.add("show");
+            } else {
+              strongerText.textContent = "";
+              strongerBox.classList.remove("show");
+            }
+
+            card.classList.add("show");
+          });
+        });
       }
-      byId("checkEvidenceBtn").addEventListener("click", checkEvidence);
-      byId("reviewBtn").addEventListener("click", reviewParagraph);
-      byId("finalBtn").addEventListener("click", buildFinal);
-      byId("printBtn").addEventListener("click", printPage);
-      byId("printBtnBottom").addEventListener("click", printPage);
-      checkCopyLock();
+
+      function setupEvents(){
+        var navButtons = document.querySelectorAll("[data-target], [data-next]");
+        navButtons.forEach(function(btn){
+          btn.addEventListener("click", function(){
+            var page = btn.getAttribute("data-target") || btn.getAttribute("data-next");
+            if(page){ showPage(page); }
+          });
+        });
+
+        fields.forEach(function(id){
+          var el = byId(id);
+          if(el){
+            el.addEventListener("input", save);
+          }
+        });
+
+        var checkBtn = byId("checkEvidenceBtn");
+        if(checkBtn){ checkBtn.addEventListener("click", checkEvidence); }
+
+        var reviewBtn = byId("reviewBtn");
+        if(reviewBtn){ reviewBtn.addEventListener("click", reviewParagraph); }
+
+        var finalBtn = byId("finalBtn");
+        if(finalBtn){ finalBtn.addEventListener("click", buildFinal); }
+
+        var printBtn = byId("printBtn");
+        if(printBtn){ printBtn.addEventListener("click", function(){ buildFinal(); window.print(); }); }
+
+        var printBtnBottom = byId("printBtnBottom");
+        if(printBtnBottom){ printBtnBottom.addEventListener("click", function(){ buildFinal(); window.print(); }); }
+      }
+
+      load();
+      updateEvidencePreview();
+      setupComparisonClicks();
+      setupEvents();
     })();
   </script>
 </body>
