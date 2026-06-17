@@ -13,7 +13,6 @@
       --green:#0f4d3a;
       --green2:#176b4d;
       --green3:#e7f1eb;
-      --sage:#176b4d;
       --gold:#f0c35a;
       --line:rgba(15,77,58,.18);
       --bad:#a33a2e;
@@ -164,22 +163,34 @@
       font-size:.96rem;
     }
 
-    .tool-bar{
-      position:sticky;
-      top:0;
-      z-index:10;
-      margin:0 0 22px;
-      border:1px solid var(--line);
-      border-radius:999px;
-      background:rgba(255,250,241,.92);
-      backdrop-filter:blur(12px);
-      box-shadow:var(--shadowsoft);
+    .top-work-actions{
+      margin:0 0 18px;
       display:flex;
       flex-wrap:wrap;
-      justify-content:space-between;
+      justify-content:flex-end;
       align-items:center;
-      gap:12px;
-      padding:10px 12px 10px 18px;
+      gap:8px;
+    }
+
+    .top-work-actions button,
+    .top-work-actions .hub-link{
+      padding:9px 13px;
+      font-size:.88rem;
+      box-shadow:none;
+      letter-spacing:0;
+    }
+
+    .progress-bar{
+      margin:-4px 0 22px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:rgba(255,250,241,.94);
+      box-shadow:var(--shadowsoft);
+      padding:10px;
+    }
+
+    .minor-actions{
+      display:none;
     }
 
     .step-pills{
@@ -187,6 +198,7 @@
       gap:8px;
       flex-wrap:wrap;
       align-items:center;
+      justify-content:center;
     }
 
     .step-tab{
@@ -214,6 +226,18 @@
     .save-note{
       font-size:.9rem;
       color:var(--muted);
+    }
+
+    .sr-only{
+      position:absolute;
+      width:1px;
+      height:1px;
+      padding:0;
+      margin:-1px;
+      overflow:hidden;
+      clip:rect(0,0,0,0);
+      white-space:nowrap;
+      border:0;
     }
 
     .page-grid{
@@ -674,9 +698,12 @@
       .box.full{grid-column:auto;}
       .hero{padding:26px;}
       .card{padding:22px;}
-      .tool-bar{
+      .progress-bar{
         border-radius:22px;
-        align-items:flex-start;
+      }
+
+      .top-work-actions{
+        justify-content:flex-start;
       }
     }
 
@@ -684,6 +711,12 @@
       body{font-size:16px;}
       .shell{padding:16px 12px 50px;}
       .hero{border-radius:26px;}
+    }
+
+    .utility-btn{
+      padding:8px 12px;
+      font-size:.88rem;
+      box-shadow:none;
     }
 
 
@@ -757,7 +790,9 @@
       }
 
       .hero,
-      .tool-bar,
+      .top-work-actions,
+      .progress-bar,
+      .minor-actions,
       .example-card,
       .button-row,
       .no-print,
@@ -797,6 +832,14 @@
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
   <div class="shell">
+    <div class="top-work-actions no-print" aria-label="Toolkit workpage actions">
+      <button type="button" class="secondary" id="saveUnfinishedTop">Save Unfinished Work for Later</button>
+      <button type="button" class="ghost utility-btn" id="restoreBtn">Restore Saved Work</button>
+      <button type="button" class="ghost utility-btn" id="printBtn">Save Finished Work as PDF</button>
+      <a class="hub-link" href="https://engl101practicepages.github.io/AssignmentWorkHub/">Return to Toolkit Work Hub</a>
+      <div class="save-note sr-only" id="saveStatus" aria-live="polite"></div>
+    </div>
+
     <header class="hero">
       <div class="hero-grid">
         <div>
@@ -817,17 +860,15 @@
       </div>
     </header>
 
-    <div class="tool-bar no-print" aria-label="Page tools">
+
+    <nav class="progress-bar no-print" aria-label="Page steps">
       <div class="step-pills" aria-label="Page navigation">
         <button type="button" class="step-tab active" data-target="example">1. Example</button>
         <button type="button" class="step-tab" data-target="evidence">2. Collect evidence</button>
         <button type="button" class="step-tab" data-target="writing">3. Write and review</button>
       </div>
-      <div class="save-note" id="saveStatus">Autosave is on for this browser.</div>
-      <button type="button" class="secondary" id="saveUnfinishedTop">Save Unfinished Work for Later</button>
-      <button type="button" class="ghost" id="restoreBtn">Restore Saved Work</button>
-      <button type="button" class="ghost" id="printBtn">Save Finished Work as PDF</button>
-    </div>
+    </nav>
+
 
     <main id="main" class="page-grid">
       <section class="card example-card page-screen active" data-page="example" aria-label="Example section">
@@ -1214,10 +1255,10 @@
         try{
           localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
           var note = byId("saveStatus");
-          if(note){ note.textContent = "Autosaved just now."; }
+          if(note){ note.textContent = "Draft saved in this browser."; }
         }catch(e){
           var note2 = byId("saveStatus");
-          if(note2){ note2.textContent = "Autosave is not available in this browser."; }
+          if(note2){ note2.textContent = "Browser draft saving is not available."; }
         }
         updateEvidencePreview();
       }
@@ -1231,7 +1272,7 @@
             if(data[id]){ setValue(id, data[id]); }
           });
           var note = byId("saveStatus");
-          if(note){ note.textContent = "Autosave restored your work."; }
+          if(note){ note.textContent = "Saved draft restored."; }
         }catch(e){}
       }
 
@@ -1571,7 +1612,7 @@
         load();
         updateEvidencePreview();
         var note = byId("saveStatus");
-        if(note){ note.textContent = "Saved work restored from this browser."; }
+        if(note){ note.textContent = "Saved draft restored."; }
       }
 
 
